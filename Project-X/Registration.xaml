@@ -1,0 +1,30 @@
+﻿<Window x:Name="Registration1" x:Class="Project_X.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_X"
+        mc:Ignorable="d"
+        Title="Registration" Height="300" Width="460" WindowStartupLocation="CenterScreen" Unloaded="Registration1_Unloaded">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
+    </Window.Background>
+    <Grid Width="460" Height="300">
+        <TextBlock HorizontalAlignment="Center" Margin="0,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="152" FontWeight="Bold"><Run Text="Bitte registrieren Sie sich:"/><Run Language="de-de" Text=" sich ein:"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Margin="218,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Height="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="86,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="83"><Run Language="de-de" Text="Benutzername:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="86,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="124"><Run Text="Passwort eingeben"/><Run Language="de-de" Text=":"/></TextBlock>
+        <Button x:Name="Abbrechen" Content="Abbrechen" HorizontalAlignment="Left" Margin="136,210,0,0" VerticalAlignment="Top" Width="89" Click="Click_Abbrechen">
+            <Button.Background>
+                <SolidColorBrush Color="#FFE2363A"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Registrieren" Content="Registrieren" HorizontalAlignment="Left" Margin="230,210,0,0" VerticalAlignment="Top" Click="Click_Register" Width="89" Background="#FF26E262"/>
+        <TextBlock HorizontalAlignment="Left" Margin="86,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="60"><Run Text="Email"/><Run Language="de-de" Text=":"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Margin="218,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="156"/>
+        <PasswordBox x:Name="Passwort_wiederholen" HorizontalAlignment="Left" Margin="218,146,0,0" VerticalAlignment="Top" Width="156"/>
+        <TextBlock HorizontalAlignment="Left" Margin="86,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="124"><Run Text="Passwort"/><Run Language="de-de" Text=" wiederholen"/><Run Text=":"/></TextBlock>
+        <PasswordBox x:Name="Passwort_eingeben" HorizontalAlignment="Left" Margin="218,169,0,0" VerticalAlignment="Top" Width="156"/>
+
+    </Grid>
+</Window>

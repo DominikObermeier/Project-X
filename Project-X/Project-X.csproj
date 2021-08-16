@@ -8,10 +8,18 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="738px-Twitter_bird_logo_2012.svg.png" />
+    <None Remove="cg_only_bolt%28360x360%29.png" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.2.237901">
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="738px-Twitter_bird_logo_2012.svg.png" />
+    <Resource Include="cg_only_bolt(360x360).png" />
   </ItemGroup>
 </Project>

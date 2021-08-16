@@ -10,19 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Project_X
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für MainMenu.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainMenu : Window
     {
-        public MainWindow()
+        public MainMenu()
         {
             InitializeComponent();
+        }
+        private void Window_Unloaded(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

@@ -1,0 +1,22 @@
+﻿<Window x:Name="LoggingIn1" x:Class="Project_X.LoggingIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_X"
+        mc:Ignorable="d"
+        Title="LogIn" Height="310" Width="460" WindowStartupLocation="CenterScreen" Icon="/cg_only_bolt(360x360).png" Cursor="Arrow" Unloaded="LoggingIn1_Unloaded">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
+    </Window.Background>
+    <Grid Margin="0,0,0,-6">
+        <TextBlock HorizontalAlignment="Left" Margin="164,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="19" Width="152" FontWeight="Bold"><Run Text="Bitte loggen Sie"/><Run Language="de-de" Text=" sich ein:"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Margin="190,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" Height="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="124,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="38"><Run Language="de-de" Text="Email:"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="124,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="60"><Run Text="Passwort"/><Run Language="de-de" Text=":"/></TextBlock>
+        <Button x:Name="Anmelden" Content="Anmelden" HorizontalAlignment="Left" Margin="141,191,0,0" VerticalAlignment="Top" Width="89" Click="Click_LogIn" Background="#FF26E262"/>
+        <Button x:Name="NeuRegistrieren" Content="Neu registrieren" HorizontalAlignment="Left" Margin="235,191,0,0" VerticalAlignment="Top" Click="Click_Register" Width="96" Background="White" Foreground="#FF003AFF" BorderBrush="#FF003AFF"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="190,150,0,0" VerticalAlignment="Top" Width="158"/>
+
+    </Grid>
+</Window>
