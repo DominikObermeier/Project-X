@@ -21,6 +21,8 @@ namespace Project_X
     /// </summary>
     public partial class Image_ofd : Window
     {
+
+        string image_name;
         public Image_ofd()
         {
             InitializeComponent();
@@ -33,26 +35,30 @@ namespace Project_X
             ofd.Title = "Select Image To Show";
             ofd.ShowDialog();
 
-            Uri image_path = new Uri(ofd.FileName);
-            string fileName_image = image_path.Segments.Last();
-            ProfileImage_Image.Source = new BitmapImage(image_path);
-            string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            
-            DirectoryInfo di = new DirectoryInfo(cdirectory + @"\Icon_Images");
-            FileInfo[] fi = di.GetFiles();
-            
-            foreach (FileInfo fiTemp in fi)
+            if (ofd.FileName != "")
             {
-                if (!File.Exists(di + @"\" + fileName_image))
+                Uri image_path = new Uri(ofd.FileName);
+                string fileName_image = image_path.Segments.Last();
+                ProfileImage_Image.Source = new BitmapImage(image_path);
+                string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+                image_name = fileName_image;
+
+                DirectoryInfo di = new DirectoryInfo(cdirectory + @"\Icon_Images");
+                FileInfo[] fi = di.GetFiles();
+
+                foreach (FileInfo fiTemp in fi)
                 {
-                    File.Copy(ofd.FileName, di + @"\" + fileName_image);
-                    MessageBox.Show("Bild wurde erfolgreich kopiert.");
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Dieses Bild wurde bereits heruntergeladen!");
-                    return;
+                    if (!File.Exists(di + @"\" + fileName_image))
+                    {
+                        File.Copy(ofd.FileName, di + @"\" + fileName_image);
+                        MessageBox.Show("Bild wurde erfolgreich heruntergeladen.");
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Dieses Bild wurde bereits heruntergeladen!");
+                        return;
+                    }
                 }
             }
         }
@@ -70,6 +76,7 @@ namespace Project_X
             // MessageBox.Show(cdirectory);
             Uri image_deletepath = new Uri(cdirectory + @"\Icon_Images\noimagefound.png");
             ProfileImage_Image.Source = new BitmapImage(image_deletepath);
+            File.Delete(cdirectory + @"\Icon_Images\" + image_name);
         }
     }
 }
