@@ -30,8 +30,8 @@
                 <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
             <TextBlock x:Name="Reg_Headline" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Foreground="White" Width="288" FontSize="24" Grid.Row="1"><Run Text="Bitte "/><Run Text="registrieren"/><Run Text=" Sie"/><Run Text=" sich:"/></TextBlock>
-            <Button x:Name="Reg_RegisterButton" Content="Registrieren" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Width="180" TextBlock.Foreground="White" BorderBrush="White" Background="#FF27AE60" Height="40" Click="Click_Register" Cursor="Hand" FontSize="24"/>
-            <Button x:Name="Reg_QuitButton" Content="Abbrechen" HorizontalAlignment="Left" Margin="420,0,0,0" Grid.Row="3" VerticalAlignment="Center" Click="Click_Abbrechen" Width="180" TextBlock.Foreground="White" BorderBrush="White" Height="40" Cursor="Hand" FontSize="24">
+            <Button x:Name="Reg_RegisterButton" Content="Registrieren" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Width="180" TextBlock.Foreground="White" BorderBrush="White" Background="#FF27AE60" Height="40" Click="Click_Register" Cursor="Hand" FontSize="24" TabIndex="5" Margin="100,0,0,0"/>
+            <Button x:Name="Reg_QuitButton" Content="Abbrechen" HorizontalAlignment="Right" Margin="0,0,100,0" Grid.Row="3" VerticalAlignment="Center" Click="Click_Abbrechen" Width="180" TextBlock.Foreground="White" BorderBrush="White" Height="40" Cursor="Hand" FontSize="24" TabIndex="6" HorizontalContentAlignment="Center">
                 <Button.Background>
                     <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.DesktopColorKey}}"/>
                 </Button.Background>
@@ -44,6 +44,7 @@
             <TextBox x:Name="Reg_EmailTextBox" HorizontalAlignment="Left" Margin="270,77,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="1" FontSize="24"/>
             <TextBox x:Name="Reg_PasswordInputTextBox" HorizontalAlignment="Left" Margin="270,118,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="2" FontSize="24"/>
             <TextBox x:Name="Reg_PasswordRepTextBox" HorizontalAlignment="Left" Margin="270,159,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="3" FontSize="24"/>
+            <Button x:Name="ProfileImage_SelectPIButton" Content="Select Profile Image" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="180" Height="40" Cursor="Hand" TabIndex="4" FontSize="20" BorderBrush="#FF0074FF" Foreground="#FF0074FF" Click="Click_ProfileImage"/>
         </Grid>
     </Grid>
 </Window>

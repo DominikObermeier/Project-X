@@ -42,5 +42,11 @@ namespace Project_X
         {
             System.Windows.Application.Current.Shutdown();
         }
+
+        private void Click_ProfileImage(object sender, RoutedEventArgs e)
+        {
+            Image_ofd image_ofd = new Image_ofd();
+            image_ofd.Show();
+        }
     }
 }
