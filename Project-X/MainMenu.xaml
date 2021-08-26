@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainMenu" FlowDirection="LeftToRight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/738px-Twitter_bird_logo_2012.svg.png" Width="1024" Height="768"
     WindowState="Maximized" WindowStyle="SingleBorderWindow" Unloaded="Window_Unloaded">
-    <Grid>
+    <Grid Background="#FF212121">
 
     </Grid>
 </Window>

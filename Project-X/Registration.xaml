@@ -5,44 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d"
-        Title="Registration" Height="300" Width="350" WindowStartupLocation="CenterScreen" Unloaded="Registration1_Unloaded" ResizeMode="NoResize">
+        Title="Registration" Height="600" Width="700" WindowStartupLocation="CenterScreen" Unloaded="Registration1_Unloaded" ResizeMode="NoResize">
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
     </Window.Background>
-    <Grid Background="#FF212121">
+    <Grid Background="#FF212121" Margin="0,0,0,-6">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="25"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="Auto" MinWidth="0"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="234.04"/>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="474"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid Grid.Column="2" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="47*"/>
                 <RowDefinition Height="50*"/>
             </Grid.RowDefinitions>
-            <TextBlock TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Foreground="White" Width="144"><Run Text="Bitte "/><Run Text="registrieren"/><Run Text=" Sie"/><Run Text=" sich:"/></TextBlock>
-            <Button Content="Registrieren" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Width="90" TextBlock.Foreground="White" BorderBrush="White" Background="#FF27AE60" Height="20" Click="Click_Register" Cursor="Hand"/>
-            <Button Content="Abbrechen" HorizontalAlignment="Left" Margin="210,0,0,0" Grid.Row="3" VerticalAlignment="Center" Click="Click_Abbrechen" Width="90" TextBlock.Foreground="White" BorderBrush="White" Height="20" Cursor="Hand">
+            <TextBlock TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Foreground="White" Width="288" FontSize="24" Grid.Row="1"><Run Text="Bitte "/><Run Text="registrieren"/><Run Text=" Sie"/><Run Text=" sich:"/></TextBlock>
+            <Button Content="Registrieren" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Width="180" TextBlock.Foreground="White" BorderBrush="White" Background="#FF27AE60" Height="40" Click="Click_Register" Cursor="Hand" FontSize="24"/>
+            <Button Content="Abbrechen" HorizontalAlignment="Left" Margin="420,0,0,0" Grid.Row="3" VerticalAlignment="Center" Click="Click_Abbrechen" Width="180" TextBlock.Foreground="White" BorderBrush="White" Height="40" Cursor="Hand" FontSize="24">
                 <Button.Background>
                     <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.DesktopColorKey}}"/>
                 </Button.Background>
             </Button>
-            <TextBlock HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="16" Width="79" Margin="0,1,0,0"><Run Text="Benutzername"/><Run Language="de-de" Text=":"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="0,24,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="16" Width="31"><Run Language="de-de" Text="Email:"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="0,47,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="16" Width="102"><Run Text="Passwort eingeben"/><Run Language="de-de" Text=":"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="0,70,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="16" Width="118"><Run Text="Passwort wiederholen"/><Run Language="de-de" Text=":"/></TextBlock>
-            <TextBox HorizontalAlignment="Left" Margin="125,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Height="18" TabIndex="0"/>
-            <TextBox HorizontalAlignment="Left" Margin="125,23,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Height="18" TabIndex="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="125,46,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Height="18" TabIndex="2"/>
-            <TextBox HorizontalAlignment="Left" Margin="125,69,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="175" Height="18" TabIndex="3"/>
+            <TextBlock HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="32" Width="245" Margin="0,38,0,0" FontSize="24"><Run Text="Benutzername"/><Run Language="de-de" Text=":"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="0,79,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="32" Width="245" FontSize="24"><Run Language="de-de" Text="Email:"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="32" Width="245" FontSize="24" Margin="0,120,0,0"><Run Text="Passwort eingeben"/><Run Language="de-de" Text=":"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Margin="0,161,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="32" Width="245" FontSize="24"><Run Text="Passwort wiederholen"/><Run Language="de-de" Text=":"/></TextBlock>
+            <TextBox HorizontalAlignment="Left" Margin="270,36,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="0" FontSize="24"/>
+            <TextBox HorizontalAlignment="Left" Margin="270,77,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="1" FontSize="24"/>
+            <TextBox HorizontalAlignment="Left" Margin="270,118,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="2" FontSize="24"/>
+            <TextBox HorizontalAlignment="Left" Margin="270,159,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="3" FontSize="24"/>
         </Grid>
     </Grid>
 </Window>

@@ -5,35 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d"
-        Title="LogIn" Height="300" Width="350" WindowStartupLocation="CenterScreen" Icon="/cg_only_bolt(360x360).png" Cursor="Arrow" Unloaded="LoggingIn1_Unloaded" ResizeMode="NoResize">
+        Title="LogIn" Height="600" Width="700" WindowStartupLocation="CenterScreen" Icon="/cg_only_bolt(360x360).png" Cursor="Arrow" Unloaded="LoggingIn1_Unloaded" ResizeMode="NoResize">
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
     </Window.Background>
-    <Grid Margin="0,0,0,-1" Width="350" UseLayoutRounding="True" Background="#FF212121">
+    <Grid Margin="0,0,0,-1" Width="700" UseLayoutRounding="False" Background="#FF212121">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="188.04"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="384"/>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20" IsEnabled="False"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="41"/>
-                <RowDefinition Height="96"/>
+                <RowDefinition Height="74" IsEnabled="False"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="190"/>
+                <RowDefinition Height="0*"/>
             </Grid.RowDefinitions>
-            <TextBlock TextWrapping="Wrap" FontWeight="Bold" Margin="0,0,0,4" HorizontalAlignment="Center" Width="138" Foreground="White"><Run Text="Bitte loggen Sie"/><Run Language="de-de" Text=" sich ein:"/></TextBlock>
-            <Button x:Name="Anmelden" Content="Anmelden" HorizontalAlignment="Left" VerticalAlignment="Center" Width="90" Click="Click_LogIn" Background="#FF27AE60" Height="20" Grid.Row="3" TextBlock.Foreground="White" Cursor="Hand" TabIndex="2"/>
-            <Button x:Name="NeuRegistrieren" Content="Neu registrieren" HorizontalAlignment="Left" Margin="160,0,0,0" VerticalAlignment="Center" Click="Click_Register" Width="90" Foreground="Black" BorderBrush="#FF003AFF" Height="20" Grid.Row="3" TextBlock.Foreground="White" Background="White" Cursor="Hand" TabIndex="3"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="92" Grid.Row="2" Foreground="White"><Run Language="de-de" Text="Email:"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" Margin="0,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="92" Grid.Row="2" Foreground="White"><Run Text="Passwort"/><Run Language="de-de" Text=":"/></TextBlock>
-            <PasswordBox HorizontalAlignment="Left" Margin="92,23,0,0" VerticalAlignment="Top" Width="158" Height="18" Grid.Row="2" Password="" TabIndex="1"/>
-            <TextBox HorizontalAlignment="Left" Margin="92,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" TabIndex="0"/>
+            <TextBlock TextWrapping="Wrap" FontWeight="Bold" Margin="0,0,0,4" HorizontalAlignment="Center" Width="300" Foreground="White" FontSize="24"><Run Text="Bitte loggen Sie"/><Run Language="de-de" Text=" sich ein:"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="36" Width="205" Grid.Row="2" Foreground="White" FontSize="25"><Run Language="de-de" Text="Email:"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="205" Grid.Row="2" Foreground="White" FontSize="25" Margin="0,84,0,0"><Run Text="Passwort"/><Run Language="de-de" Text=":"/></TextBlock>
+            <PasswordBox HorizontalAlignment="Left" Margin="250,84,0,0" VerticalAlignment="Top" Width="250" Height="36" Grid.Row="2" Password="" TabIndex="1" FontSize="24"/>
+            <TextBox HorizontalAlignment="Left" Margin="250,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="250" TabIndex="0" Height="36" FontSize="24"/>
+            <TextBlock HorizontalAlignment="Left" Margin="348,48,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" Height="22" Foreground="#FF0074FF"><Run Language="de-de" Text="Noch nicht registriert?"/></TextBlock>
+            <Button Content="Registrieren" HorizontalAlignment="Left" Margin="320,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="180" Background="White" BorderBrush="#FF0074FF" Foreground="#FF0074FF" Height="40" FontSize="24" Click="Click_Register"/>
+            <Button x:Name="Anmelden" Content="Anmelden" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" Click="Click_LogIn" Background="#FF27AE60" Height="40" Grid.Row="3" TextBlock.Foreground="White" Cursor="Hand" TabIndex="2" FontSize="24"/>
         </Grid>
 
     </Grid>
