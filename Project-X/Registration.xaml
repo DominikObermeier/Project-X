@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d"
-        Title="Registration" Height="600" Width="700" WindowStartupLocation="CenterScreen" Unloaded="Registration1_Unloaded" ResizeMode="NoResize">
+        Title="Registration" Height="600" Width="700" WindowStartupLocation="CenterScreen" Unloaded="Registration1_Unloaded" ResizeMode="NoResize" Icon="/Icon_Images/738px-Twitter_bird_logo_2012.svg.png">
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
     </Window.Background>

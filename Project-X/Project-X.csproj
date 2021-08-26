@@ -19,7 +19,7 @@
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="738px-Twitter_bird_logo_2012.svg.png" />
-    <Resource Include="cg_only_bolt(360x360).png" />
+    <Resource Include="Icon_Images\738px-Twitter_bird_logo_2012.svg.png" />
+    <Resource Include="Icon_Images\cg_only_bolt%28360x360%29.png" />
   </ItemGroup>
 </Project>
