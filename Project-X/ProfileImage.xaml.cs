@@ -29,10 +29,32 @@ namespace Project_X
         private void Click_LoadImage(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.ShowDialog();
+            ofd.Filter = "Image files(*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
             ofd.Title = "Select Image To Show";
+            ofd.ShowDialog();
+
             Uri image_path = new Uri(ofd.FileName);
+            string fileName_image = image_path.Segments.Last();
             ProfileImage_Image.Source = new BitmapImage(image_path);
+            string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            
+            DirectoryInfo di = new DirectoryInfo(cdirectory + @"\Icon_Images");
+            FileInfo[] fi = di.GetFiles();
+            
+            foreach (FileInfo fiTemp in fi)
+            {
+                if (!File.Exists(di + @"\" + fileName_image))
+                {
+                    File.Copy(ofd.FileName, di + @"\" + fileName_image);
+                    MessageBox.Show("Bild wurde erfolgreich kopiert.");
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Dieses Bild wurde bereits heruntergeladen!");
+                    return;
+                }
+            }
         }
 
         private void Click_SaveImage(object sender, RoutedEventArgs e)
@@ -44,7 +66,7 @@ namespace Project_X
         private void Click_DeleteImage(object sender, RoutedEventArgs e)
         {
             // C:\Users\Dominik\source\repos\Project-X\Project-X\Icon_Images\noimagefound.png
-            string cdirectory = System.IO.Directory.GetParent(System.IO.Directory.GetParent(System.IO.Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+            string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
             // MessageBox.Show(cdirectory);
             Uri image_deletepath = new Uri(cdirectory + @"\Icon_Images\noimagefound.png");
             ProfileImage_Image.Source = new BitmapImage(image_deletepath);
