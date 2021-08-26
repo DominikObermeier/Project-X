@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d"
-        Title="MainMenu" FlowDirection="LeftToRight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/738px-Twitter_bird_logo_2012.svg.png" Width="1024" Height="768"
+        Title="MainMenu" FlowDirection="LeftToRight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/Icon_Images/738px-Twitter_bird_logo_2012.svg.png" Width="1024" Height="768"
     WindowState="Maximized" WindowStyle="SingleBorderWindow" Unloaded="Window_Unloaded">
     <Grid Background="#FF212121">
 

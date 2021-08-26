@@ -1,4 +1,4 @@
-﻿<Window x:Name="LoggingIn1" x:Class="Project_X.LoggingIn"
+﻿<Window x:Name="LogIn_Window1" x:Class="Project_X.LoggingIn"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -9,7 +9,7 @@
     <Window.Background>
         <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
     </Window.Background>
-    <Grid Margin="0,0,0,-1" Width="700" UseLayoutRounding="False" Background="#FF212121">
+    <Grid x:Name="LogIn_GridOutside" Margin="0,0,0,-1" Width="700" UseLayoutRounding="False" Background="#FF212121">
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
             <RowDefinition Height="384"/>
@@ -21,7 +21,7 @@
             <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid x:Name="LogIn_GridCentre" Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="74" IsEnabled="False"/>
                 <RowDefinition Height="0"/>
@@ -29,14 +29,14 @@
                 <RowDefinition Height="190"/>
                 <RowDefinition Height="0*"/>
             </Grid.RowDefinitions>
-            <TextBlock TextWrapping="Wrap" FontWeight="Bold" Margin="0,0,0,4" HorizontalAlignment="Center" Width="300" Foreground="White" FontSize="24"><Run Text="Bitte loggen Sie"/><Run Language="de-de" Text=" sich ein:"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="36" Width="205" Grid.Row="2" Foreground="White" FontSize="25"><Run Language="de-de" Text="Email:"/></TextBlock>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="205" Grid.Row="2" Foreground="White" FontSize="25" Margin="0,84,0,0"><Run Text="Passwort"/><Run Language="de-de" Text=":"/></TextBlock>
-            <PasswordBox HorizontalAlignment="Left" Margin="250,84,0,0" VerticalAlignment="Top" Width="250" Height="36" Grid.Row="2" Password="" TabIndex="1" FontSize="24"/>
-            <TextBox HorizontalAlignment="Left" Margin="250,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="250" TabIndex="0" Height="36" FontSize="24"/>
-            <TextBlock HorizontalAlignment="Left" Margin="348,48,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="124" Height="22" Foreground="#FF0074FF"><Run Language="de-de" Text="Noch nicht registriert?"/></TextBlock>
-            <Button Content="Registrieren" HorizontalAlignment="Left" Margin="320,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="180" Background="White" BorderBrush="#FF0074FF" Foreground="#FF0074FF" Height="40" FontSize="24" Click="Click_Register"/>
-            <Button x:Name="Anmelden" Content="Anmelden" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" Click="Click_LogIn" Background="#FF27AE60" Height="40" Grid.Row="3" TextBlock.Foreground="White" Cursor="Hand" TabIndex="2" FontSize="24"/>
+            <TextBlock x:Name="LogIn_Headline" TextWrapping="Wrap" FontWeight="Bold" Margin="0,0,0,4" HorizontalAlignment="Center" Width="300" Foreground="White" FontSize="24"><Run Text="Bitte loggen Sie"/><Run Language="de-de" Text=" sich ein:"/></TextBlock>
+            <TextBlock x:Name="LogIn_EmailTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="36" Width="205" Grid.Row="2" Foreground="White" FontSize="25"><Run Language="de-de" Text="Email:"/></TextBlock>
+            <TextBlock x:Name="LogIn_PasswordTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="205" Grid.Row="2" Foreground="White" FontSize="25" Margin="0,84,0,0"><Run Text="Passwort"/><Run Language="de-de" Text=":"/></TextBlock>
+            <PasswordBox x:Name="LogIn_PasswordTextBox" HorizontalAlignment="Left" Margin="250,84,0,0" VerticalAlignment="Top" Width="250" Height="36" Grid.Row="2" Password="" TabIndex="1" FontSize="24"/>
+            <TextBox x:Name="LogIn_EmailTextBox" HorizontalAlignment="Left" Margin="250,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="250" TabIndex="0" Height="36" FontSize="24"/>
+            <TextBlock x:Name="LogIn_RegistrationQuestion" HorizontalAlignment="Left" Margin="351,48,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Foreground="#FF0074FF"><Run Language="de-de" Text="Noch nicht registriert?"/></TextBlock>
+            <Button x:Name="LogIn_RegisterButton" Content="Registrieren" HorizontalAlignment="Left" Margin="320,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="180" Background="White" BorderBrush="#FF0074FF" Foreground="#FF0074FF" Height="40" FontSize="24" Click="Click_Register"/>
+            <Button x:Name="LogIn_LogInButton" Content="Anmelden" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" Click="Click_LogIn" Background="#FF27AE60" Height="40" Grid.Row="3" TextBlock.Foreground="White" Cursor="Hand" TabIndex="2" FontSize="24"/>
         </Grid>
 
     </Grid>
