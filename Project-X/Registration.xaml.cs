@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,6 +44,16 @@ namespace Project_X
                 userName = Reg_UserNameTextBox.Text;
                 email = Reg_EmailTextBox.Text;
                 password = Reg_PasswordRepTextBox.Text;
+
+                //using (File = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + @"\Data\Account_Data\Account_Data.txt"))
+                string cpath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).ToString()).ToString()).ToString()).ToString();
+                if (File.ReadAllText(cpath + @"\Data\Account_Data\Account_Data.txt") == "") 
+                {
+                    File.WriteAllText(cpath + @"\Data\Account_Data\Account_Data.txt", "");
+                }
+                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", "Username: " + userName + Environment.NewLine);
+                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", "Email: " + email + Environment.NewLine);
+                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", "Password: " + password + Environment.NewLine);
 
                 LoggingIn objAnmelden = new LoggingIn();
                 this.Visibility = Visibility.Hidden; // Hides current window

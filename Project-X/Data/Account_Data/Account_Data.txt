@@ -1,4 +1,0 @@
-﻿Username:
-Email:
-Password:
-ProfileImagePath:

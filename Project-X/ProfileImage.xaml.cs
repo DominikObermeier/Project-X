@@ -24,6 +24,7 @@ namespace Project_X
     {
 
         public string image_name = "noimagefound.png";
+        string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
         public Image_ofd()
         {
             InitializeComponent();
@@ -41,7 +42,6 @@ namespace Project_X
                 Uri image_path = new Uri(ofd.FileName);
                 string fileName_image = image_path.Segments.Last();
                 ProfileImage_Image.Source = new BitmapImage(image_path);
-                string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
                 image_name = fileName_image;
 
                 DirectoryInfo di = new DirectoryInfo(cdirectory + @"\Data\Profile_Images");
@@ -67,8 +67,7 @@ namespace Project_X
         private void Click_SaveImage(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
-
-            //System.Diagnostics.Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.System) + @"\calc.exe");
+            File.AppendAllText(cdirectory + @"\Data\Account_Data\Account_Data.txt", "ProfileImage: " + cdirectory + @"\Data\Profile_Images\" + image_name + Environment.NewLine);
         }
 
 
