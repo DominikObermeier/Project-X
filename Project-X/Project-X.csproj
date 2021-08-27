@@ -9,8 +9,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="738px-Twitter_bird_logo_2012.svg.png" />
-    <None Remove="cg_only_bolt%28360x360%29.png" />
-    <None Remove="noimagefound.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
@@ -21,8 +19,8 @@
     <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icon_Images\738px-Twitter_bird_logo_2012.svg.png" />
-    <Resource Include="Icon_Images\cg_only_bolt%28360x360%29.png" />
-    <Resource Include="Icon_Images\noimagefound.png" />
+    <Resource Include="Data\Window_Icons\738px-Twitter_bird_logo_2012.svg.png" />
+    <Resource Include="Data\Window_Icons\cg_only_bolt%28360x360%29.png" />
+    <Resource Include="Data\Profile_Images\noimagefound.png" />
   </ItemGroup>
 </Project>

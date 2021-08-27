@@ -19,10 +19,11 @@ namespace Project_X
     /// <summary>
     /// Interaction logic for Image_ofd.xaml
     /// </summary>
+    /// 
     public partial class Image_ofd : Window
     {
 
-        string image_name = "noimagefound.png";
+        public string image_name = "noimagefound.png";
         public Image_ofd()
         {
             InitializeComponent();
@@ -43,7 +44,7 @@ namespace Project_X
                 string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
                 image_name = fileName_image;
 
-                DirectoryInfo di = new DirectoryInfo(cdirectory + @"\Icon_Images");
+                DirectoryInfo di = new DirectoryInfo(cdirectory + @"\Data\Profile_Images");
                 FileInfo[] fi = di.GetFiles();
 
                 foreach (FileInfo fiTemp in fi)
@@ -66,6 +67,8 @@ namespace Project_X
         private void Click_SaveImage(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
+
+            //System.Diagnostics.Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.System) + @"\calc.exe");
         }
 
 
@@ -74,12 +77,12 @@ namespace Project_X
             // C:\Users\Dominik\source\repos\Project-X\Project-X\Icon_Images\noimagefound.png
             string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
             // MessageBox.Show(cdirectory);
-            Uri image_deletepath = new Uri(cdirectory + @"\Icon_Images\noimagefound.png");
+            Uri image_deletepath = new Uri(cdirectory + @"\Data\Profile_Images\noimagefound.png");
             ProfileImage_Image.Source = new BitmapImage(image_deletepath);
 
             if (image_name.Contains("noimagefound.png") == false)
             {
-                File.Delete(cdirectory + @"\Icon_Images\" + image_name);
+                File.Delete(cdirectory + @"\Data\Profile_Images\" + image_name);
             }
         }
     }

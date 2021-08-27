@@ -19,6 +19,10 @@ namespace Project_X
     /// </summary>
     public partial class Registration : Window
     {
+        string userName;
+        string email;
+        string password;
+
         public Registration()
         {
             InitializeComponent();
@@ -33,9 +37,37 @@ namespace Project_X
 
         private void Click_Register(object sender, RoutedEventArgs e)
         {
-            LoggingIn objAnmelden = new LoggingIn();
-            this.Visibility = Visibility.Hidden; // Hides current window
-            objAnmelden.Show();
+
+            if (Reg_PasswordRepTextBox.Text == Reg_PasswordInputTextBox.Text && Reg_PasswordInputTextBox.Text != "")
+            {
+                userName = Reg_UserNameTextBox.Text;
+                email = Reg_EmailTextBox.Text;
+                password = Reg_PasswordRepTextBox.Text;
+
+                LoggingIn objAnmelden = new LoggingIn();
+                this.Visibility = Visibility.Hidden; // Hides current window
+                objAnmelden.Show();
+            }
+            else if (Reg_UserNameTextBox.Text == "")
+            {
+                MessageBox.Show("Bitte gebe einen Benutzernamen ein!");
+            }
+            else if (Reg_EmailTextBox.Text == "")
+            {
+                MessageBox.Show("Bitte gebe deine Email-Adresse ein!");
+            }
+            else if (Reg_PasswordInputTextBox.Text == "")
+            {
+                MessageBox.Show("Bitte gebe ein Passwort ein!");
+            }
+            else if (Reg_PasswordInputTextBox.Text.Length < 8)
+            {
+                MessageBox.Show("Das Passwort muss mindestens aus 8 Zeichen bestehen!");
+            }
+            else if (Reg_PasswordRepTextBox.Text != Reg_PasswordInputTextBox.Text)
+            {
+                MessageBox.Show("Die Passwörter stimmen nicht überein!");
+            }
         }
 
         private void Registration1_Unloaded(object sender, RoutedEventArgs e)
