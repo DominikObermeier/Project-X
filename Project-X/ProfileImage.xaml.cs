@@ -22,7 +22,7 @@ namespace Project_X
     public partial class Image_ofd : Window
     {
 
-        string image_name;
+        string image_name = "noimagefound.png";
         public Image_ofd()
         {
             InitializeComponent();
@@ -76,7 +76,11 @@ namespace Project_X
             // MessageBox.Show(cdirectory);
             Uri image_deletepath = new Uri(cdirectory + @"\Icon_Images\noimagefound.png");
             ProfileImage_Image.Source = new BitmapImage(image_deletepath);
-            File.Delete(cdirectory + @"\Icon_Images\" + image_name);
+
+            if (image_name.Contains("noimagefound.png") == false)
+            {
+                File.Delete(cdirectory + @"\Icon_Images\" + image_name);
+            }
         }
     }
 }
