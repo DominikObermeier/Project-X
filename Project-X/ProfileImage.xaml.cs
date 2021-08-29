@@ -67,7 +67,8 @@ namespace Project_X
         private void Click_SaveImage(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
-            File.AppendAllText(cdirectory + @"\Data\Account_Data\Account_Data.txt", "ProfileImage: " + cdirectory + @"\Data\Profile_Images\" + image_name + Environment.NewLine);
+            File.WriteAllText(cdirectory + @"\Data\Account_Data\Account_Data.txt", String.Empty);
+            File.AppendAllText(cdirectory + @"\Data\Account_Data\Account_Data.txt", cdirectory + @"\Data\Profile_Images\" + image_name + Environment.NewLine);
         }
 
 

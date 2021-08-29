@@ -51,9 +51,9 @@ namespace Project_X
                 {
                     File.WriteAllText(cpath + @"\Data\Account_Data\Account_Data.txt", "");
                 }
-                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", "Username: " + userName + Environment.NewLine);
-                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", "Email: " + email + Environment.NewLine);
-                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", "Password: " + password + Environment.NewLine);
+                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", userName + Environment.NewLine);
+                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", email + Environment.NewLine);
+                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", password + Environment.NewLine);
 
                 LoggingIn objAnmelden = new LoggingIn();
                 this.Visibility = Visibility.Hidden; // Hides current window
