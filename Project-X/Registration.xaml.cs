@@ -47,23 +47,23 @@ namespace Project_X
             }
             else if (Reg_UserNameTextBox.Text == "")
             {
-                MessageBox.Show("Bitte gebe einen Benutzernamen ein!");
+                MessageBox.Show("Please enter your username!");
             }
             else if (Reg_EmailTextBox.Text == "")
             {
-                MessageBox.Show("Bitte gebe deine Email-Adresse ein!");
+                MessageBox.Show("Please enter your email address!");
             }
             else if (Reg_PasswordInputTextBox.Text == "")
             {
-                MessageBox.Show("Bitte gebe ein Passwort ein!");
+                MessageBox.Show("Please enter your password!");
             }
             else if (Reg_PasswordInputTextBox.Text.Length < 8)
             {
-                MessageBox.Show("Das Passwort muss mindestens aus 8 Zeichen bestehen!");
+                MessageBox.Show("The password must consist of at least 8 characters!");
             }
             else if (Reg_PasswordRepTextBox.Text != Reg_PasswordInputTextBox.Text)
             {
-                MessageBox.Show("Die Passwörter stimmen nicht überein!");
+                MessageBox.Show("The passwords don't match!");
             }
         }
 

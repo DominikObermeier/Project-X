@@ -33,7 +33,7 @@ namespace Project_X
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image files(*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            ofd.Title = "Select Image To Open";
+            ofd.Title = "Select Profile Image";
             ofd.ShowDialog();
         }
     }

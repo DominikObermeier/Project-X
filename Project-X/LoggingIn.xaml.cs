@@ -47,7 +47,7 @@ namespace Project_X
             }
             else if (LogIn_EmailTextBox.Text == "" || LogIn_EmailTextBox.Text != Properties.Settings.Default.email)
             {
-                MessageBox.Show("Die Email Adresse wurde falsch eingegeben!");
+                MessageBox.Show("The email address is wrong!");
                 return;
             }
 
@@ -63,7 +63,7 @@ namespace Project_X
 
             else if (LogIn_PasswordTextBox.Password == "" || LogIn_PasswordTextBox.Password != Properties.Settings.Default.password)
             {
-                MessageBox.Show("Das Passwort wurde falsch eingegeben!");
+                MessageBox.Show("The password is wrong!");
                 return;
             }
         }

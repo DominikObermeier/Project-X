@@ -34,7 +34,7 @@ namespace Project_X
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image files(*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            ofd.Title = "Select Image To Show";
+            ofd.Title = "Select Profile Image";
             ofd.ShowDialog();
 
             if (ofd.FileName != "")
@@ -51,12 +51,12 @@ namespace Project_X
                     if (!File.Exists(di + @"\" + image_name))
                     {
                         File.Copy(ofd.FileName, di + @"\" + image_name);
-                        MessageBox.Show("Bild wurde erfolgreich heruntergeladen.");
+                        MessageBox.Show("Image has been downloaded successfully.");
                         return;
                     }
                     else
                     {
-                        MessageBox.Show("Dieses Bild wurde bereits heruntergeladen!");
+                        MessageBox.Show("Image couldn't be downloaded!");
                         return;
                     }
                 }
