@@ -39,47 +39,33 @@ namespace Project_X
         }
         private void Click_LogIn(object sender, RoutedEventArgs e)
         {
-            string line;
-            int counter = 1;
-            string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
-            StreamReader file = new StreamReader(cdirectory + @"\Data\Account_Data\Account_Data.txt");
+            // read from settings.default
 
-            while ((line = file.ReadLine()) != null)
+            if (LogIn_EmailTextBox.Text == Properties.Settings.Default.email)
             {
-
-                if (counter == 3)
-                {
-                    if (LogIn_EmailTextBox.Text == line)
-                    {
-                        goto EmailSucceeded;
-                    }
-                    else if (LogIn_EmailTextBox.Text == "" || LogIn_EmailTextBox.Text != line)
-                    {
-                        MessageBox.Show("Die Email Adresse wurde falsch eingegeben!");
-                        return;
-                    }
-                }
-
-                EmailSucceeded:
-                if (counter == 4)
-                {
-                    if (LogIn_PasswordTextBox.Password == line)
-                    {
-                        setAnmeldeStatus(true);
-                        MainMenu objMainMenu = new MainMenu();
-                        this.Visibility = Visibility.Hidden; // Hides current window
-                        objMainMenu.Show();
-                    }
-
-                    else if (LogIn_PasswordTextBox.Password == "" || LogIn_PasswordTextBox.Password != line)
-                    {
-                        MessageBox.Show("Das Passwort wurde falsch eingegeben!");
-                        return;
-                    }
-                }
-                counter++;
+                goto EmailSucceeded;
             }
-            file.Close();
+            else if (LogIn_EmailTextBox.Text == "" || LogIn_EmailTextBox.Text != Properties.Settings.Default.email)
+            {
+                MessageBox.Show("Die Email Adresse wurde falsch eingegeben!");
+                return;
+            }
+
+        EmailSucceeded:
+
+            if (LogIn_PasswordTextBox.Password == Properties.Settings.Default.password)
+            {
+                setAnmeldeStatus(true);
+                MainMenu objMainMenu = new MainMenu();
+                this.Visibility = Visibility.Hidden; // Hides current window
+                objMainMenu.Show();
+            }
+
+            else if (LogIn_PasswordTextBox.Password == "" || LogIn_PasswordTextBox.Password != Properties.Settings.Default.password)
+            {
+                MessageBox.Show("Das Passwort wurde falsch eingegeben!");
+                return;
+            }
         }
         private void Click_Register(object sender, RoutedEventArgs e)
         {

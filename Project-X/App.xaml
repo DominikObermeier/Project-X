@@ -5,5 +5,9 @@
              StartupUri="LoggingIn.xaml">
     <Application.Resources>
          
+        <SolidColorBrush x:Key="BackgroundDarkMode" Color="#FF212121"/>
+        <SolidColorBrush x:Key="DarkBlueDarkMode" Color="#FF0074FF"/>
+        <SolidColorBrush x:Key="DarkGreenDarkMode" Color="#FF27AE60"/>
+        <SolidColorBrush x:Key="DarkRedDarkMode" Color="#FFD81D1D"/>
     </Application.Resources>
 </Application>

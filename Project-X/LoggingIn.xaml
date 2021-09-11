@@ -35,8 +35,8 @@
             <PasswordBox x:Name="LogIn_PasswordTextBox" HorizontalAlignment="Left" Margin="250,84,0,0" VerticalAlignment="Top" Width="250" Height="36" Grid.Row="2" Password="" TabIndex="1" FontSize="24"/>
             <TextBox x:Name="LogIn_EmailTextBox" HorizontalAlignment="Left" Margin="250,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="250" TabIndex="0" Height="36" FontSize="24"/>
             <TextBlock x:Name="LogIn_RegistrationQuestion" HorizontalAlignment="Left" Margin="351,48,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Foreground="#FF0074FF"><Run Language="de-de" Text="Noch nicht registriert?"/></TextBlock>
-            <Button x:Name="LogIn_RegisterButton" Content="Registrieren" HorizontalAlignment="Left" Margin="320,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="180" Background="White" BorderBrush="#FF0074FF" Foreground="#FF0074FF" Height="40" FontSize="24" Click="Click_Register"/>
-            <Button x:Name="LogIn_LogInButton" Content="Anmelden" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" Click="Click_LogIn" Background="#FF27AE60" Height="40" Grid.Row="3" TextBlock.Foreground="White" Cursor="Hand" TabIndex="2" FontSize="24"/>
+            <Button x:Name="LogIn_RegisterButton" Content="Registrieren" HorizontalAlignment="Left" Margin="320,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="180" Background="White" BorderBrush="{DynamicResource DarkBlueDarkMode}" Foreground="#FF0074FF" Height="40" FontSize="24" Click="Click_Register"/>
+            <Button x:Name="LogIn_LogInButton" Content="Anmelden" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" Click="Click_LogIn" Background="{DynamicResource DarkGreenDarkMode}" Height="40" Grid.Row="3" TextBlock.Foreground="White" Cursor="Hand" TabIndex="2" FontSize="24"/>
         </Grid>
 
     </Grid>

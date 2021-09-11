@@ -9,9 +9,8 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Security;
+using System.Security.Cryptography;
 
 namespace Project_X
 {
@@ -20,10 +19,6 @@ namespace Project_X
     /// </summary>
     public partial class Registration : Window
     {
-        string userName;
-        string email;
-        string password;
-
         public Registration()
         {
             InitializeComponent();
@@ -39,21 +34,12 @@ namespace Project_X
         private void Click_Register(object sender, RoutedEventArgs e)
         {
 
-            if (Reg_PasswordRepTextBox.Text == Reg_PasswordInputTextBox.Text && Reg_PasswordInputTextBox.Text != "")
+            if (Reg_PasswordRepTextBox.Text == Reg_PasswordInputTextBox.Text && Reg_PasswordInputTextBox.Text != "" && Reg_PasswordInputTextBox.Text.Length >= 8)
             {
-                userName = Reg_UserNameTextBox.Text;
-                email = Reg_EmailTextBox.Text;
-                password = Reg_PasswordRepTextBox.Text;
-
-                //using (File = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + @"\Data\Account_Data\Account_Data.txt"))
-                string cpath = Directory.GetParent(Directory.GetParent(Directory.GetParent(Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).ToString()).ToString()).ToString()).ToString();
-                if (File.ReadAllText(cpath + @"\Data\Account_Data\Account_Data.txt") == "") 
-                {
-                    File.WriteAllText(cpath + @"\Data\Account_Data\Account_Data.txt", "");
-                }
-                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", userName + Environment.NewLine);
-                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", email + Environment.NewLine);
-                File.AppendAllText(cpath + @"\Data\Account_Data\Account_Data.txt", password + Environment.NewLine);
+                Properties.Settings.Default.username = Reg_UserNameTextBox.Text;
+                Properties.Settings.Default.email = Reg_EmailTextBox.Text;
+                Properties.Settings.Default.password = Reg_PasswordInputTextBox.Text;
+                Properties.Settings.Default.Save();
 
                 LoggingIn objAnmelden = new LoggingIn();
                 this.Visibility = Visibility.Hidden; // Hides current window

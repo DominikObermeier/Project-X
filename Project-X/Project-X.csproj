@@ -17,6 +17,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
     <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+    <PackageReference Include="System.Security.SecureString" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\Window_Icons\738px-Twitter_bird_logo_2012.svg.png" />

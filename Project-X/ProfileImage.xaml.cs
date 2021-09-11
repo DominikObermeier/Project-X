@@ -22,9 +22,9 @@ namespace Project_X
     /// 
     public partial class Image_ofd : Window
     {
-
-        public string image_name = "noimagefound.png";
-        string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+        public string image_name = "";
+        public static string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+        public string path_profile_images = cdirectory + @"\Data\Profile_Images";
         public Image_ofd()
         {
             InitializeComponent();
@@ -40,18 +40,17 @@ namespace Project_X
             if (ofd.FileName != "")
             {
                 Uri image_path = new Uri(ofd.FileName);
-                string fileName_image = image_path.Segments.Last();
+                image_name = image_path.Segments.Last();
                 ProfileImage_Image.Source = new BitmapImage(image_path);
-                image_name = fileName_image;
 
-                DirectoryInfo di = new DirectoryInfo(cdirectory + @"\Data\Profile_Images");
+                DirectoryInfo di = new DirectoryInfo(path_profile_images);
                 FileInfo[] fi = di.GetFiles();
 
                 foreach (FileInfo fiTemp in fi)
                 {
-                    if (!File.Exists(di + @"\" + fileName_image))
+                    if (!File.Exists(di + @"\" + image_name))
                     {
-                        File.Copy(ofd.FileName, di + @"\" + fileName_image);
+                        File.Copy(ofd.FileName, di + @"\" + image_name);
                         MessageBox.Show("Bild wurde erfolgreich heruntergeladen.");
                         return;
                     }
@@ -67,22 +66,21 @@ namespace Project_X
         private void Click_SaveImage(object sender, RoutedEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
-            File.WriteAllText(cdirectory + @"\Data\Account_Data\Account_Data.txt", String.Empty);
-            File.AppendAllText(cdirectory + @"\Data\Account_Data\Account_Data.txt", cdirectory + @"\Data\Profile_Images\" + image_name + Environment.NewLine);
+            Properties.Settings.Default.profileImage = path_profile_images + @"\" + image_name;
+            Properties.Settings.Default.Save();
         }
 
 
         private void Click_DeleteImage(object sender, RoutedEventArgs e)
         {
             // C:\Users\Dominik\source\repos\Project-X\Project-X\Icon_Images\noimagefound.png
-            string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
             // MessageBox.Show(cdirectory);
-            Uri image_deletepath = new Uri(cdirectory + @"\Data\Profile_Images\noimagefound.png");
+            Uri image_deletepath = new Uri(cdirectory + path_profile_images + @"\" + "noimagefound.png");
             ProfileImage_Image.Source = new BitmapImage(image_deletepath);
 
             if (image_name.Contains("noimagefound.png") == false)
             {
-                File.Delete(cdirectory + @"\Data\Profile_Images\" + image_name);
+                File.Delete(path_profile_images + @"\" + image_name);
             }
         }
     }
