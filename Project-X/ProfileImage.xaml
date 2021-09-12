@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d"
-        Title="ProfileImage" Height="364" Width="320" Background="#FF212121" Topmost="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="Data\Window_Icons\cg_only_bolt(360x360).png">
-    <Grid x:Name="ProfileImage_GridOutside" Background="{DynamicResource BackgroundDarkMode}" Height="369" VerticalAlignment="Top" Margin="0,0,10,0">
+        Title="Select profile image" Height="364" Width="320" Background="{DynamicResource BackgroundColor}" Topmost="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="/Data/Window_Icons/211677_image_icon.png">
+    <Grid x:Name="ProfileImage_GridOutside" Background="{DynamicResource BackgroundColor}" Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
@@ -21,13 +21,13 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="ProfileImage_LoadImageButton" Content="Load Image" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" Grid.Column="1" Height="20" Grid.Row="1" Cursor="Hand" BorderBrush="{DynamicResource DarkBlueDarkMode}" Foreground="{DynamicResource DarkBlueDarkMode}" Click="Click_LoadImage"/>
-        <Grid Grid.Column="1" HorizontalAlignment="Center" Grid.RowSpan="2" Grid.Row="3" VerticalAlignment="Top" Height="210" Width="210">
-            <Image x:Name="ProfileImage_Image" Source="/Data/Profile_Images/noimagefound.png" Stretch="Uniform" Margin="0,0,-90,-90" Grid.ColumnSpan="2"/>
+        <Button x:Name="ProfileImage_LoadImageButton" Content="Load Image" HorizontalAlignment="Left" VerticalAlignment="Center" Width="70" Grid.Column="1" Height="20" Grid.Row="1" Cursor="Hand" BorderBrush="{DynamicResource BlueButtonColor}" Foreground="{DynamicResource BlueButtonColor}" Click="Click_LoadImage" Background="White"/>
+        <Grid Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="210" Width="210">
+            <Image x:Name="ProfileImage_Image" Source="/Data/Profile_Images/noimagefound.png" Stretch="Uniform" Margin="0,0,-90,-90"/>
 
         </Grid>
-        <Button x:Name="ProfileImage_SaveButton" Content="Save " Margin="15,0,15,0" VerticalAlignment="Center" Grid.Column="3" Height="20" Grid.Row="1" Background="{DynamicResource DarkGreenDarkMode}" Foreground="White" Cursor="Hand" Click="Click_SaveImage"/>
-        <Button x:Name="ProfileImage_DeleteButton" Content="Delete" Margin="140,0,0,0" VerticalAlignment="Center" Grid.Column="1" Height="20" Grid.Row="1" Foreground="White" Cursor="Hand" Click="Click_DeleteImage" Background="{DynamicResource DarkRedDarkMode}"/>
+        <Button x:Name="ProfileImage_SaveButton" Content="Save " Margin="15,0,15,0" VerticalAlignment="Center" Grid.Column="3" Height="20" Grid.Row="1" Background="{DynamicResource AcceptButtonColor}" Foreground="{DynamicResource ForegroundColor}" Cursor="Hand" Click="Click_SaveImage"/>
+        <Button x:Name="ProfileImage_DeleteButton" Content="Delete" Margin="140,0,0,0" VerticalAlignment="Center" Grid.Column="1" Height="20" Grid.Row="1" Foreground="{DynamicResource ForegroundColor}" Cursor="Hand" Click="Click_DeleteImage" Background="{DynamicResource QuitButtonColor}"/>
 
     </Grid>
 </Window>

@@ -5,42 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d"
-        Title="Registration" Height="600" Width="700" WindowStartupLocation="CenterScreen" Unloaded="Registration1_Unloaded" ResizeMode="NoResize" Icon="Data\Window_Icons\cg_only_bolt(360x360).png">
-    <Window.Background>
-        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
-    </Window.Background>
-    <Grid x:Name="Reg_GridOutside" Background="#FF212121" Margin="0,0,0,-6">
+        Title="Registration" Height="554" Width="700" WindowStartupLocation="CenterScreen" Unloaded="Registration1_Unloaded" ResizeMode="NoResize" Icon="/Data/Window_Icons/511942_lock_login_protection_secure_icon.png" Background="{DynamicResource BackgroundColor}">
+    <Grid x:Name="Reg_GridOutside">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="Auto" MinWidth="0"/>
-            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="474"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="Reg_GridCentre" Grid.Column="2" Grid.Row="1">
+        <Grid x:Name="Reg_GridCentre" Grid.Column="2" Grid.Row="1" Height="414" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="40"/>
-                <RowDefinition Height="47*"/>
-                <RowDefinition Height="50*"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="Reg_Headline" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Foreground="White" Width="288" FontSize="24" Grid.Row="1"><Run Text="Bitte "/><Run Text="registrieren"/><Run Text=" Sie"/><Run Text=" sich:"/></TextBlock>
-            <Button x:Name="Reg_RegisterButton" Content="Registrieren" HorizontalAlignment="Left" Grid.Row="3" VerticalAlignment="Center" Width="180" TextBlock.Foreground="White" BorderBrush="White" Background="{DynamicResource DarkGreenDarkMode}" Height="40" Click="Click_Register" Cursor="Hand" FontSize="24" TabIndex="5" Margin="100,0,0,0"/>
-            <Button x:Name="Reg_QuitButton" Content="Abbrechen" HorizontalAlignment="Right" Margin="0,0,100,0" Grid.Row="3" VerticalAlignment="Center" Click="Click_Abbrechen" Width="180" TextBlock.Foreground="White" BorderBrush="White" Height="40" Cursor="Hand" FontSize="24" TabIndex="6" HorizontalContentAlignment="Center" Background="{DynamicResource DarkRedDarkMode}"/>
-            <TextBlock x:Name="Reg_UserNameTextBlock" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="32" Width="245" Margin="0,38,0,0" FontSize="24"><Run Text="Benutzername"/><Run Language="de-de" Text=":"/></TextBlock>
-            <TextBlock x:Name="Reg_EmailTextBlock" HorizontalAlignment="Left" Margin="0,79,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="32" Width="245" FontSize="24"><Run Language="de-de" Text="Email:"/></TextBlock>
-            <TextBlock x:Name="Reg_PasswordInputTextBlock" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="32" Width="245" FontSize="24" Margin="0,120,0,0"><Run Text="Passwort eingeben"/><Run Language="de-de" Text=":"/></TextBlock>
-            <TextBlock x:Name="Reg_PasswordRepTextBlock" HorizontalAlignment="Left" Margin="0,161,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" Height="32" Width="245" FontSize="24"><Run Text="Passwort wiederholen"/><Run Language="de-de" Text=":"/></TextBlock>
+            <TextBlock x:Name="Reg_Headline" TextWrapping="Wrap" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Height="40" Foreground="{DynamicResource ForegroundColor}" Width="400" FontSize="24" Grid.Row="1" Text="Please enter data for registration:"/>
+            <Button x:Name="Reg_RegisterButton" Content="Submit" HorizontalAlignment="Left" Grid.Row="3" Width="180" TextBlock.Foreground="White" BorderBrush="{DynamicResource ForegroundColor}" Background="{DynamicResource AcceptButtonColor}" Click="Click_Register" Cursor="Hand" FontSize="24" TabIndex="5" Margin="100,100,0,0" Height="40" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}"/>
+            <Button x:Name="Reg_QuitButton" Content="Cancel" HorizontalAlignment="Right" Margin="0,100,100,0" Grid.Row="3" Click="Click_Abbrechen" Width="180" TextBlock.Foreground="White" BorderBrush="{DynamicResource ForegroundColor}" Cursor="Hand" FontSize="24" TabIndex="6" HorizontalContentAlignment="Center" Background="{DynamicResource QuitButtonColor}" Height="40" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}"/>
+            <TextBlock x:Name="Reg_UserNameTextBlock" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}" Height="32" Width="245" Margin="0,38,0,0" FontSize="24"><Run Text="Username"/><Run Language="de-de" Text=":"/></TextBlock>
+            <TextBlock x:Name="Reg_EmailTextBlock" HorizontalAlignment="Left" Margin="0,79,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}" Height="32" Width="245" FontSize="24"><Run Language="de-de" Text="E-mail:"/></TextBlock>
+            <TextBlock x:Name="Reg_PasswordInputTextBlock" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}" Height="32" Width="245" FontSize="24" Margin="0,120,0,0"><Run Language="de-de" Text="Password:"/></TextBlock>
+            <TextBlock x:Name="Reg_PasswordRepTextBlock" HorizontalAlignment="Left" Margin="0,161,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}" Height="32" Width="245" FontSize="24"><Run Language="de-de" Text="Confirm password:"/></TextBlock>
             <TextBox x:Name="Reg_UserNameTextBox" HorizontalAlignment="Left" Margin="270,36,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="0" FontSize="24"/>
             <TextBox x:Name="Reg_EmailTextBox" HorizontalAlignment="Left" Margin="270,77,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="1" FontSize="24"/>
             <TextBox x:Name="Reg_PasswordInputTextBox" HorizontalAlignment="Left" Margin="270,118,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="2" FontSize="24"/>
             <TextBox x:Name="Reg_PasswordRepTextBox" HorizontalAlignment="Left" Margin="270,159,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" Height="36" TabIndex="3" FontSize="24"/>
-            <Button x:Name="ProfileImage_SelectPIButton" Content="Select Profile Image" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="180" Height="40" Cursor="Hand" TabIndex="4" FontSize="20" BorderBrush="{DynamicResource DarkBlueDarkMode}" Foreground="{DynamicResource DarkBlueDarkMode}" Click="Click_ProfileImage"/>
+            <Button x:Name="ProfileImage_SelectPIButton" Content="Select profile image" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="3" VerticalAlignment="Top" Width="180" Height="40" Cursor="Hand" TabIndex="4" FontSize="20" BorderBrush="{DynamicResource BlueButtonColor}" Foreground="{DynamicResource BlueButtonColor}" Click="Click_ProfileImage" Background="White"/>
         </Grid>
     </Grid>
 </Window>

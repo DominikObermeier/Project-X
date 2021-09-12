@@ -5,21 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d"
-        Title="LogIn" Height="600" Width="700" WindowStartupLocation="CenterScreen" Icon="Data\Window_Icons\cg_only_bolt(360x360).png" Cursor="Arrow" Unloaded="LoggingIn1_Unloaded" ResizeMode="NoResize">
-    <Window.Background>
-        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
-    </Window.Background>
-    <Grid x:Name="LogIn_GridOutside" Margin="0,0,0,-1" Width="700" UseLayoutRounding="False" Background="#FF212121">
+        Title="Log-In" WindowStartupLocation="CenterScreen" Icon="/Data/Window_Icons/511942_lock_login_protection_secure_icon.png" Cursor="Arrow" Unloaded="LoggingIn1_Unloaded" ResizeMode="NoResize" Background="{DynamicResource BackgroundColor}" Width="600" Height="500" IsTabStop="False" IsManipulationEnabled="True">
+    <Grid x:Name="LogIn_GridOutside" UseLayoutRounding="False" VerticalAlignment="Center" SnapsToDevicePixels="True">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="384"/>
-            <RowDefinition Height="0*"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="369"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="500"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
         <Grid x:Name="LogIn_GridCentre" Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
@@ -29,14 +25,14 @@
                 <RowDefinition Height="190"/>
                 <RowDefinition Height="0*"/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="LogIn_Headline" TextWrapping="Wrap" FontWeight="Bold" Margin="0,0,0,4" HorizontalAlignment="Center" Width="300" Foreground="White" FontSize="24"><Run Text="Bitte loggen Sie"/><Run Language="de-de" Text=" sich ein:"/></TextBlock>
-            <TextBlock x:Name="LogIn_EmailTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Center" Height="36" Width="205" Grid.Row="2" Foreground="White" FontSize="25"><Run Language="de-de" Text="Email:"/></TextBlock>
-            <TextBlock x:Name="LogIn_PasswordTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Width="205" Grid.Row="2" Foreground="White" FontSize="25" Margin="0,84,0,0"><Run Text="Passwort"/><Run Language="de-de" Text=":"/></TextBlock>
-            <PasswordBox x:Name="LogIn_PasswordTextBox" HorizontalAlignment="Left" Margin="250,84,0,0" VerticalAlignment="Top" Width="250" Height="36" Grid.Row="2" Password="" TabIndex="1" FontSize="24"/>
-            <TextBox x:Name="LogIn_EmailTextBox" HorizontalAlignment="Left" Margin="250,0,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="250" TabIndex="0" Height="36" FontSize="24"/>
-            <TextBlock x:Name="LogIn_RegistrationQuestion" HorizontalAlignment="Left" Margin="351,48,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Foreground="#FF0074FF"><Run Language="de-de" Text="Noch nicht registriert?"/></TextBlock>
-            <Button x:Name="LogIn_RegisterButton" Content="Registrieren" HorizontalAlignment="Left" Margin="320,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="180" Background="White" BorderBrush="{DynamicResource DarkBlueDarkMode}" Foreground="#FF0074FF" Height="40" FontSize="24" Click="Click_Register"/>
-            <Button x:Name="LogIn_LogInButton" Content="Anmelden" HorizontalAlignment="Left" VerticalAlignment="Center" Width="180" Click="Click_LogIn" Background="{DynamicResource DarkGreenDarkMode}" Height="40" Grid.Row="3" TextBlock.Foreground="White" Cursor="Hand" TabIndex="2" FontSize="24"/>
+            <TextBlock x:Name="LogIn_Headline" TextWrapping="Wrap" FontWeight="Bold" Margin="0,0,0,4" HorizontalAlignment="Center" Width="300" Foreground="{DynamicResource ForegroundColor}" FontSize="24" Text="Please enter log-in data:"/>
+            <TextBlock x:Name="LogIn_EmailTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Height="36" Grid.Row="2" Foreground="{DynamicResource ForegroundColor}" FontSize="25" Margin="50,0,0,0" HorizontalAlignment="Left" Width="205"><Run Text="E-"/><Run Language="de-de" Text="m"/><Run Text="ail"/></TextBlock>
+            <TextBlock x:Name="LogIn_PasswordTextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="36" Grid.Row="2" Foreground="{DynamicResource ForegroundColor}" FontSize="25" Margin="50,84,0,0" Text="Password" HorizontalAlignment="Left" Width="205"/>
+            <PasswordBox x:Name="LogIn_PasswordTextBox" Margin="0,84,50,0" VerticalAlignment="Top" Height="36" Grid.Row="2" Password="" TabIndex="1" FontSize="24" Padding="0,0,0,0" HorizontalAlignment="Right" Width="250"/>
+            <TextBox x:Name="LogIn_EmailTextBox" Margin="0,0,50,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" TabIndex="0" Height="36" FontSize="24" HorizontalAlignment="Right" Width="250"/>
+            <TextBlock x:Name="LogIn_RegistrationQuestion" HorizontalAlignment="Left" Margin="309,48,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Foreground="{DynamicResource BlueButtonColor}"><Run Language="de-de" Text="Not"/><Run Text=" registered yet?"/></TextBlock>
+            <Button x:Name="LogIn_RegisterButton" Content="Register" Margin="0,0,50,0" Grid.Row="3" VerticalAlignment="Center" BorderBrush="{DynamicResource BlueButtonColor}" Foreground="{DynamicResource BlueButtonColor}" Height="40" FontSize="24" Click="Click_Register" Background="White" HorizontalAlignment="Right" Width="180"/>
+            <Button x:Name="LogIn_LogInButton" Content="Log-in" VerticalAlignment="Center" Click="Click_LogIn" Background="{DynamicResource AcceptButtonColor}" Height="40" Grid.Row="3" TextBlock.Foreground="White" Cursor="Hand" TabIndex="2" FontSize="24" Foreground="{DynamicResource ForegroundColor}" BorderBrush="{DynamicResource ForegroundColor}" HorizontalAlignment="Left" Width="180" Margin="50,0,0,0"/>
         </Grid>
 
     </Grid>

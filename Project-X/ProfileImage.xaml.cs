@@ -48,15 +48,20 @@ namespace Project_X
 
                 foreach (FileInfo fiTemp in fi)
                 {
-                    if (!File.Exists(di + @"\" + image_name))
+                    if (!File.Exists(path_profile_images + @"\" + image_name))
                     {
-                        File.Copy(ofd.FileName, di + @"\" + image_name);
+                        File.Copy(ofd.FileName, path_profile_images + @"\" + image_name);
                         MessageBox.Show("Image has been downloaded successfully.");
+                        return;
+                    }
+                    else if(File.Exists(path_profile_images + @"\" + image_name))
+                    {
+                        MessageBox.Show("Image has already been downloaded!");
                         return;
                     }
                     else
                     {
-                        MessageBox.Show("Image couldn't be downloaded!");
+                        MessageBox.Show("Something went wrong during download! Please try again.");
                         return;
                     }
                 }
@@ -70,12 +75,9 @@ namespace Project_X
             Properties.Settings.Default.Save();
         }
 
-
         private void Click_DeleteImage(object sender, RoutedEventArgs e)
         {
-            // C:\Users\Dominik\source\repos\Project-X\Project-X\Icon_Images\noimagefound.png
-            // MessageBox.Show(cdirectory);
-            Uri image_deletepath = new Uri(cdirectory + path_profile_images + @"\" + "noimagefound.png");
+            Uri image_deletepath = new Uri(path_profile_images + @"\" + "noimagefound.png");
             ProfileImage_Image.Source = new BitmapImage(image_deletepath);
 
             if (image_name.Contains("noimagefound.png") == false)

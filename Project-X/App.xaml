@@ -4,11 +4,10 @@
              xmlns:local="clr-namespace:Project_X"
              StartupUri="LoggingIn.xaml">
     <Application.Resources>
-         
-        <SolidColorBrush x:Key="BackgroundColor" Color="#FF212121"/>
+        <SolidColorBrush x:Key="BackgroundColor" Color="#FFE5E5E5"/>
         <SolidColorBrush x:Key="BlueButtonColor" Color="#FF0074FF"/>
         <SolidColorBrush x:Key="AcceptButtonColor" Color="#FF27AE60"/>
         <SolidColorBrush x:Key="QuitButtonColor" Color="#FFD81D1D"/>
-        <SolidColorBrush x:Key="ForegroundColor" Color="#FFFFFFFF"/>
+        <SolidColorBrush x:Key="ForegroundColor" Color="#FF000000"/>
     </Application.Resources>
 </Application>

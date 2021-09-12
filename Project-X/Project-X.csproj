@@ -8,6 +8,10 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="211677_image_icon.png" />
+    <None Remove="2285206_social_application_code_share_icon.png" />
+    <None Remove="3669250_settings_ic_icon.png" />
+    <None Remove="511942_lock_login_protection_secure_icon.png" />
     <None Remove="738px-Twitter_bird_logo_2012.svg.png" />
   </ItemGroup>
   <ItemGroup>
@@ -20,8 +24,10 @@
     <PackageReference Include="System.Security.SecureString" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\Window_Icons\738px-Twitter_bird_logo_2012.svg.png" />
-    <Resource Include="Data\Window_Icons\cg_only_bolt%28360x360%29.png" />
+    <Resource Include="Data\Window_Icons\211677_image_icon.png" />
+    <Resource Include="Data\Window_Icons\2285206_social_application_code_share_icon.png" />
+    <Resource Include="Data\Window_Icons\3669250_settings_ic_icon.png" />
+    <Resource Include="Data\Window_Icons\511942_lock_login_protection_secure_icon.png" />
     <Resource Include="Data\Profile_Images\noimagefound.png" />
   </ItemGroup>
   <ItemGroup>

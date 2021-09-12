@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d" 
-        Title="MainMenu" FlowDirection="LeftToRight" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Icon="Data\Window_Icons\cg_only_bolt(360x360).png" Width="1024" Height="768"
-        WindowState="Maximized" WindowStyle="SingleBorderWindow" Unloaded="Window_Unloaded">
+        Title="MyApplication" FlowDirection="LeftToRight" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Icon="/Data/Window_Icons/2285206_social_application_code_share_icon.png" Width="1024" Height="768"
+        WindowState="Maximized" WindowStyle="SingleBorderWindow" Unloaded="Window_Unloaded" Background="{DynamicResource BackgroundColor}">
     <Grid x:Name="MainMenu_MainGrid" Background="{DynamicResource BackgroundColor}">
         <Menu x:Name="MainMenu_Menu" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource ForegroundColor}" Margin="0,0,0,732" BorderBrush="#FF212121">
             <MenuItem x:Name="MainMenu_File" Header="_File" Width="50" Height="20" BorderBrush="{DynamicResource BackgroundColor}" Background="{DynamicResource BackgroundColor}" ClipToBounds="True" Foreground="{DynamicResource ForegroundColor}">
@@ -20,7 +20,7 @@
             </MenuItem>
             <MenuItem x:Name="MainMenu_Edit" Header="_Edit" Width="50" BorderBrush="{DynamicResource BackgroundColor}" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource ForegroundColor}"/>
             <MenuItem x:Name="MainMenu_Extras" Header="Extras" Width="50" BorderBrush="{DynamicResource BackgroundColor}" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource ForegroundColor}">
-                <MenuItem x:Name="Extras_Settings" Header="_Settings" BorderBrush="#FF212121" Background="#FF212121" Click="Extras_Settings_Click"/>
+                <MenuItem x:Name="Extras_Settings" Header="_Settings" BorderBrush="{DynamicResource BackgroundColor}" Background="{DynamicResource BackgroundColor}" Click="Extras_Settings_Click" Foreground="{DynamicResource ForegroundColor}"/>
             </MenuItem>
         </Menu>
     </Grid>

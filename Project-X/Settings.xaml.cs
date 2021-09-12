@@ -20,9 +20,6 @@ namespace Project_X
     public partial class Settings : Window
     {
         bool saved = false;
-        bool designDefault = false;
-        bool designDarkMode = false;
-
 
         SolidColorBrush colorBackground;
         SolidColorBrush colorText;
@@ -39,9 +36,9 @@ namespace Project_X
                 MessageBoxResult result =
                   MessageBox.Show(
                     msg,
-                    "Data App",
+                    "Settings alert",
                     MessageBoxButton.YesNo,
-                    MessageBoxImage.Warning);
+                    MessageBoxImage.Warning) ;
                 if (result == MessageBoxResult.No)
                 {
                     // If user doesn't want to close, cancel closure
@@ -52,35 +49,29 @@ namespace Project_X
 
         private void Design_Default_RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            designDefault = true;
-        }
-
-        private void Design_Default_RadioButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            designDefault = false;
+            Properties.Settings.Default.designMode = "Default";
+            Properties.Settings.Default.Save();
         }
         private void Design_DarkMode_RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            designDarkMode = true;
-        }
-        private void Design_DarkMode_RadioButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            designDarkMode = false;
+            Properties.Settings.Default.designMode = "DarkMode";
+            Properties.Settings.Default.Save();
         }
 
         private void Settings_SaveButton_Click(object sender, RoutedEventArgs e)
         {
             // Save Design Settings
-            if (designDefault == true)
+            if (Properties.Settings.Default.designMode == "Default")
             {
-                colorBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#E5E5E5"));
+                colorBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE5E5E5"));
 
                 Application.Current.Resources["BackgroundColor"] = colorBackground;
 
-                colorText = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#000000"));
+                colorText = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF000000"));
 
                 Application.Current.Resources["ForegroundColor"] = colorText;
-            } else if (designDarkMode == true)
+            }
+            else if (Properties.Settings.Default.designMode == "DarkMode")
             {
                 colorBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF212121"));
 
@@ -96,19 +87,13 @@ namespace Project_X
 
         private void SettingsWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            if (Application.Current.Resources["BackgroundColor"].ToString() == "#E5E5E5")
-            {
-                designDefault = true;
-            }else if (Application.Current.Resources["BackgroundColor"].ToString() == "#FF212121")
-            {
-                designDarkMode = true;
-            }
-            if (designDarkMode == true)
-            {
-                Design_DarkMode_RadioButton.IsChecked = true;
-            }else if (designDefault == true)
+            if (Application.Current.Resources["BackgroundColor"].ToString() == "#FFE5E5E5")
             {
                 Design_Default_RadioButton.IsChecked = true;
+            }
+            else if (Application.Current.Resources["BackgroundColor"].ToString() == "#FF212121")
+            {
+                Design_DarkMode_RadioButton.IsChecked = true;
             }
         }
     }

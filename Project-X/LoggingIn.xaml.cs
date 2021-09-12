@@ -22,20 +22,43 @@ namespace Project_X
     /// 
     public partial class LoggingIn : Window
     {
-
+        SolidColorBrush colorBackground;
+        SolidColorBrush colorText;
         public LoggingIn()
         {
             InitializeComponent();
+
+            // Load Design
+            if (Properties.Settings.Default.designMode == "Default")
+            {
+                colorBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE5E5E5"));
+
+                Application.Current.Resources["BackgroundColor"] = colorBackground;
+
+                colorText = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF000000"));
+
+                Application.Current.Resources["ForegroundColor"] = colorText;
+            }
+            else if (Properties.Settings.Default.designMode == "DarkMode")
+            {
+                colorBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF212121"));
+
+                Application.Current.Resources["BackgroundColor"] = colorBackground;
+
+                colorText = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFFFF"));
+
+                Application.Current.Resources["ForegroundColor"] = colorText;
+            }
         }
 
-        public bool angemeldet = false;
-        public bool getAnmeldeStatus()
+        public bool loggedIn = false;
+        public bool getLogInStatus()
         {
-            return angemeldet;
+            return loggedIn;
         }
-        public void setAnmeldeStatus(bool newAnmeldeStatus)
+        public void setLogInStatus(bool newLogInStatus)
         {
-            angemeldet = newAnmeldeStatus;
+            loggedIn = newLogInStatus;
         }
         private void Click_LogIn(object sender, RoutedEventArgs e)
         {
@@ -55,7 +78,7 @@ namespace Project_X
 
             if (LogIn_PasswordTextBox.Password == Properties.Settings.Default.password)
             {
-                setAnmeldeStatus(true);
+                setLogInStatus(true);
                 MainMenu objMainMenu = new MainMenu();
                 this.Visibility = Visibility.Hidden; // Hides current window
                 objMainMenu.Show();

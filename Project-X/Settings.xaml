@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d"
-        Title="Settings" Height="700" Width="700" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="SettingsWindow_Closing" Background="{DynamicResource BackgroundColor}" Loaded="SettingsWindow_Loaded">
+        Title="Settings" Height="700" Width="700" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="SettingsWindow_Closing" Background="{DynamicResource BackgroundColor}" Loaded="SettingsWindow_Loaded" Icon="/Data/Window_Icons/3669250_settings_ic_icon.png">
     <Window.Resources>
     </Window.Resources>
     <Grid x:Name="Settings_GridOutside" OpacityMask="Black">
@@ -23,8 +23,8 @@
                     </Style>
                 </GroupBox.Style>
                 <Grid x:Name="Settings_Design_Grid">
-                    <RadioButton x:Name="Design_Default_RadioButton" Content="Default" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="138" Checked="Design_Default_RadioButton_Checked" Background="#FFFFFFFF" Unchecked="Design_Default_RadioButton_Unchecked"/>
-                    <RadioButton x:Name="Design_DarkMode_RadioButton" Content="Dark Mode" Margin="0,46,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="138" Background="#FFFFFFFF" Checked="Design_DarkMode_RadioButton_Checked" Unchecked="Design_DarkMode_RadioButton_Unchecked"/>
+                    <RadioButton x:Name="Design_Default_RadioButton" Content="Default" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="138" Checked="Design_Default_RadioButton_Checked" Background="#FFFFFFFF"/>
+                    <RadioButton x:Name="Design_DarkMode_RadioButton" Content="Dark Mode" Margin="0,46,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="138" Background="#FFFFFFFF" Checked="Design_DarkMode_RadioButton_Checked"/>
                 </Grid>
             </GroupBox>
         </Grid>

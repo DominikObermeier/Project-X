@@ -70,5 +70,17 @@ namespace Project_X.Properties {
                 this["email"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string designMode {
+            get {
+                return ((string)(this["designMode"]));
+            }
+            set {
+                this["designMode"] = value;
+            }
+        }
     }
 }
