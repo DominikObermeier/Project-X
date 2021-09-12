@@ -7,19 +7,19 @@
         mc:Ignorable="d" 
         Title="MainMenu" FlowDirection="LeftToRight" ResizeMode="CanResize" WindowStartupLocation="CenterScreen" Icon="Data\Window_Icons\cg_only_bolt(360x360).png" Width="1024" Height="768"
         WindowState="Maximized" WindowStyle="SingleBorderWindow" Unloaded="Window_Unloaded">
-    <Grid x:Name="MainMenu_MainGrid" Background="{DynamicResource BackgroundDarkMode}">
-        <Menu x:Name="MainMenu_Menu" Background="#FF212121" Foreground="White" Margin="0,0,0,732" BorderBrush="#FF212121">
-            <MenuItem x:Name="MainMenu_File" Header="_File" Width="50" Height="20" BorderBrush="#FF212121" Background="#FF212121" ClipToBounds="True" Foreground="White">
-                <MenuItem x:Name="File_Open" Background="Black" BorderBrush="Black" Header="Open..." Foreground="White" ToolTip="Open a file" Click="File_Open_Click" InputGestureText="Ctrl+o">
+    <Grid x:Name="MainMenu_MainGrid" Background="{DynamicResource BackgroundColor}">
+        <Menu x:Name="MainMenu_Menu" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource ForegroundColor}" Margin="0,0,0,732" BorderBrush="#FF212121">
+            <MenuItem x:Name="MainMenu_File" Header="_File" Width="50" Height="20" BorderBrush="{DynamicResource BackgroundColor}" Background="{DynamicResource BackgroundColor}" ClipToBounds="True" Foreground="{DynamicResource ForegroundColor}">
+                <MenuItem x:Name="File_Open" Background="{DynamicResource BackgroundColor}" BorderBrush="{DynamicResource BackgroundColor}" Header="Open..." Foreground="{DynamicResource ForegroundColor}" ToolTip="Open a file" Click="File_Open_Click" InputGestureText="Ctrl+o">
                     <MenuItem.InputBindings>
                         <KeyBinding Key="O" Modifiers="Ctrl"/>
                     </MenuItem.InputBindings>
                 </MenuItem>
-                <MenuItem x:Name="File_Save" Header="Save" Background="Black" Foreground="White" BorderBrush="Black" ToolTip="Save file"/>
-                <MenuItem x:Name="File_SaveAs" Background="Black" BorderBrush="Black" Header="Save as..." Foreground="White" ToolTip="Save file and change file extension"/>
+                <MenuItem x:Name="File_Save" Header="Save" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource ForegroundColor}" BorderBrush="{DynamicResource BackgroundColor}" ToolTip="Save file"/>
+                <MenuItem x:Name="File_SaveAs" Background="{DynamicResource BackgroundColor}" BorderBrush="{DynamicResource BackgroundColor}" Header="Save as..." Foreground="{DynamicResource ForegroundColor}" ToolTip="Save file and change file extension"/>
             </MenuItem>
-            <MenuItem x:Name="MainMenu_Edit" Header="_Edit" Width="50" BorderBrush="#FF212121" Background="#FF212121"/>
-            <MenuItem x:Name="MainMenu_Extras" Header="Extras" Width="50" BorderBrush="#FF212121" Background="#FF212121">
+            <MenuItem x:Name="MainMenu_Edit" Header="_Edit" Width="50" BorderBrush="{DynamicResource BackgroundColor}" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource ForegroundColor}"/>
+            <MenuItem x:Name="MainMenu_Extras" Header="Extras" Width="50" BorderBrush="{DynamicResource BackgroundColor}" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource ForegroundColor}">
                 <MenuItem x:Name="Extras_Settings" Header="_Settings" BorderBrush="#FF212121" Background="#FF212121" Click="Extras_Settings_Click"/>
             </MenuItem>
         </Menu>
