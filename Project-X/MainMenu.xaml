@@ -20,7 +20,7 @@
             </MenuItem>
             <MenuItem x:Name="MainMenu_Edit" Header="_Edit" Width="50" BorderBrush="#FF212121" Background="#FF212121"/>
             <MenuItem x:Name="MainMenu_Extras" Header="Extras" Width="50" BorderBrush="#FF212121" Background="#FF212121">
-                <MenuItem x:Name="Extras_Settings" Header="_Settings" BorderBrush="#FF212121" Background="#FF212121"/>
+                <MenuItem x:Name="Extras_Settings" Header="_Settings" BorderBrush="#FF212121" Background="#FF212121" Click="Extras_Settings_Click"/>
             </MenuItem>
         </Menu>
     </Grid>

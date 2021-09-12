@@ -36,5 +36,11 @@ namespace Project_X
             ofd.Title = "Select Profile Image";
             ofd.ShowDialog();
         }
+
+        private void Extras_Settings_Click(object sender, RoutedEventArgs e)
+        {
+            Settings settingsWindow = new Settings();
+            settingsWindow.Show();
+        }
     }
 }
