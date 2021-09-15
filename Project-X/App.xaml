@@ -9,5 +9,6 @@
         <SolidColorBrush x:Key="AcceptButtonColor" Color="#FF27AE60"/>
         <SolidColorBrush x:Key="QuitButtonColor" Color="#FFD81D1D"/>
         <SolidColorBrush x:Key="ForegroundColor" Color="#FF000000"/>
+        <SolidColorBrush x:Key="Background2ndLayerColor" Color="#FFCECECE"/>
     </Application.Resources>
 </Application>

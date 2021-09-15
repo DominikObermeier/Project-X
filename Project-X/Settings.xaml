@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d"
-        Title="Settings" Height="700" Width="700" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="SettingsWindow_Closing" Background="{DynamicResource BackgroundColor}" Loaded="SettingsWindow_Loaded" Icon="/Data/Window_Icons/3669250_settings_ic_icon.png">
+        Title="Settings" Height="700" Width="800" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="SettingsWindow_Closing" Background="{DynamicResource BackgroundColor}" Loaded="SettingsWindow_Loaded" Icon="/Data/Window_Icons/3669250_settings_ic_icon.png">
     <Window.Resources>
     </Window.Resources>
     <Grid x:Name="Settings_GridOutside" OpacityMask="Black">
@@ -25,6 +25,33 @@
                 <Grid x:Name="Settings_Design_Grid">
                     <RadioButton x:Name="Design_Default_RadioButton" Content="Default" Margin="0,10,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="138" Checked="Design_Default_RadioButton_Checked" Background="#FFFFFFFF"/>
                     <RadioButton x:Name="Design_DarkMode_RadioButton" Content="Dark Mode" Margin="0,46,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ForegroundColor}" VerticalContentAlignment="Center" HorizontalAlignment="Center" Width="138" Background="#FFFFFFFF" Checked="Design_DarkMode_RadioButton_Checked"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox x:Name="Settings_Profile_GroupBox" Header="Profile" Height="210" VerticalAlignment="Top" Margin="10,139,10,0" FontSize="24" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource ForegroundColor}" BorderBrush="{DynamicResource ForegroundColor}" OpacityMask="Black">
+                <GroupBox.Style>
+                    <Style TargetType="{x:Type GroupBox}">
+                        <Setter Property="BorderBrush" Value="{DynamicResource ForegroundColor}"/>
+                    </Style>
+                </GroupBox.Style>
+                <Grid x:Name="Settings_Profile_Grid" Height="173" Margin="0,0,-2,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="179*"/>
+                        <ColumnDefinition Width="591*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="Settings_Label_Email" HorizontalAlignment="Left" Margin="13,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"><Run Language="de-de" Text="E-mail:"/></TextBlock>
+                    <TextBlock x:Name="Settings_Label_Username" HorizontalAlignment="Left" Margin="13,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"><Run Text="Username"/><Run Language="de-de" Text=":"/></TextBlock>
+                    
+                    <Grid HorizontalAlignment="Left" Height="153" Margin="154,0,0,0" VerticalAlignment="Center" Width="475" Background="{DynamicResource Background2ndLayerColor}" Grid.ColumnSpan="2">
+                        <PasswordBox x:Name="Settings_Textbox_OldPW" HorizontalAlignment="Left" Margin="10,114,0,0" VerticalAlignment="Top" Width="315" FontSize="20" HorizontalContentAlignment="Left"/>
+                        <TextBox x:Name="Settings_Textbox_Username" HorizontalAlignment="Center" Margin="0,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="455" FontSize="20"/>
+                        <TextBox x:Name="Settings_Textbox_Email" HorizontalAlignment="Center" Margin="0,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="455" FontSize="20"/>
+                        <PasswordBox x:Name="Settings_Textbox_NewPW" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="315" FontSize="20" HorizontalContentAlignment="Left"/>
+                        <Button x:Name="Settings_Profile_SaveButton" Content="Save" HorizontalAlignment="Left" Margin="412,107,0,0" VerticalAlignment="Top" Background="{DynamicResource AcceptButtonColor}" Foreground="{DynamicResource ForegroundColor}" BorderBrush="{DynamicResource ForegroundColor}"/>
+                    </Grid>
+                    <TextBlock x:Name="Settings_Label_OldPW" HorizontalAlignment="Left" Margin="13,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"><Run Text="Old password"/><Run Language="de-de" Text=":"/></TextBlock>
+                    <TextBlock x:Name="Settings_Label_NewPW" HorizontalAlignment="Left" Margin="13,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"><Run Language="de-de" Text="New"/><Run Text=" password:"/></TextBlock>
+                    <Image x:Name="Settings_ProfileImage" HorizontalAlignment="Left" Height="114" Margin="465,10,0,0" VerticalAlignment="Top" Width="114" Source="/Data/Profile_Images/noimagefound.png" Grid.Column="1" Stretch="UniformToFill"/>
+                    <Button x:Name="Settings_EditImage_Button" VerticalAlignment="Top"  Margin="465,130,12,0" FontSize="20" Foreground="{DynamicResource BlueButtonColor}" Content="Edit Image" BorderBrush="{DynamicResource BlueButtonColor}" BorderThickness="2,2,2,2" Background="{DynamicResource BackgroundColor}" Grid.Column="1" Click="Settings_EditImage_Button_Click"/>
                 </Grid>
             </GroupBox>
         </Grid>

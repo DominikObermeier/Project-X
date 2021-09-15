@@ -20,6 +20,7 @@ namespace Project_X
     /// </summary>
     public partial class MainMenu : Window
     {
+        bool settings_window_status = false;
         public MainMenu()
         {
             InitializeComponent();
@@ -39,8 +40,11 @@ namespace Project_X
 
         private void Extras_Settings_Click(object sender, RoutedEventArgs e)
         {
-            Settings settingsWindow = new Settings();
-            settingsWindow.Show();
+            if (settings_window_status == false) {
+                Settings settingsWindow = new Settings();
+                settingsWindow.Show();
+                settings_window_status = true;
+            }
         }
     }
 }

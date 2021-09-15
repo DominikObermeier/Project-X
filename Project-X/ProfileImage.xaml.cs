@@ -85,5 +85,11 @@ namespace Project_X
                 File.Delete(path_profile_images + @"\" + image_name);
             }
         }
+
+        private void ProfileImage_window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Uri image_path = new Uri(Properties.Settings.Default.profileImage);
+            ProfileImage_Image.Source = new BitmapImage(image_path);
+        }
     }
 }

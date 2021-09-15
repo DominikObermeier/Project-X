@@ -23,6 +23,8 @@ namespace Project_X
 
         SolidColorBrush colorBackground;
         SolidColorBrush colorText;
+        SolidColorBrush colorBackground2ndLayer;
+        bool image_ofd_window_status = false;
         public Settings()
         {
             InitializeComponent();
@@ -67,15 +69,24 @@ namespace Project_X
 
                 Application.Current.Resources["BackgroundColor"] = colorBackground;
 
-                colorText = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF000000"));
+                colorBackground2ndLayer = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFCECECE"));
+
+                Application.Current.Resources["Background2ndLayerColor"] = colorBackground2ndLayer;
+
+            colorText = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF000000"));
 
                 Application.Current.Resources["ForegroundColor"] = colorText;
+
             }
             else if (Properties.Settings.Default.designMode == "DarkMode")
             {
                 colorBackground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF212121"));
 
                 Application.Current.Resources["BackgroundColor"] = colorBackground;
+
+                colorBackground2ndLayer = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF373737"));
+
+                Application.Current.Resources["Background2ndLayerColor"] = colorBackground2ndLayer;
 
                 colorText = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFFFF"));
 
@@ -87,6 +98,7 @@ namespace Project_X
 
         private void SettingsWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            // Detect Design Mode
             if (Application.Current.Resources["BackgroundColor"].ToString() == "#FFE5E5E5")
             {
                 Design_Default_RadioButton.IsChecked = true;
@@ -94,6 +106,21 @@ namespace Project_X
             else if (Application.Current.Resources["BackgroundColor"].ToString() == "#FF212121")
             {
                 Design_DarkMode_RadioButton.IsChecked = true;
+            }
+
+            // Load profile data
+            Settings_Textbox_Username.Text = Properties.Settings.Default.username;
+            Settings_Textbox_Email.Text = Properties.Settings.Default.email;
+            Uri image_path = new Uri(Properties.Settings.Default.profileImage);
+            Settings_ProfileImage.Source = new BitmapImage(image_path);
+        }
+
+        private void Settings_EditImage_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (image_ofd_window_status == false) {
+                Image_ofd image_Ofd = new Image_ofd();
+                image_Ofd.Show();
+                image_ofd_window_status = true;
             }
         }
     }
