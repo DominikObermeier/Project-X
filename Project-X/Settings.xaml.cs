@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,10 @@ namespace Project_X
         SolidColorBrush colorText;
         SolidColorBrush colorBackground2ndLayer;
         bool image_ofd_window_status = false;
+        bool pwEyeEnabled = false;
+
+        public static string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+        public string path_window_icons = cdirectory + @"\Data\Window_Icons";
         public Settings()
         {
             InitializeComponent();
@@ -109,8 +114,10 @@ namespace Project_X
             }
 
             // Load profile data
-            Settings_Textbox_Username.Text = Properties.Settings.Default.username;
-            Settings_Textbox_Email.Text = Properties.Settings.Default.email;
+            Settings_Label_ShowUsername.Text = Properties.Settings.Default.username;
+            Settings_Label_ShowEmail.Text = Properties.Settings.Default.email;
+            Settings_PBox_ShowPassword.Password = Properties.Settings.Default.password;
+            Settings_Label_ShowPassword.Text = Properties.Settings.Default.password;
             Uri image_path = new Uri(Properties.Settings.Default.profileImage);
             Settings_ProfileImage.Source = new BitmapImage(image_path);
         }
@@ -121,6 +128,25 @@ namespace Project_X
                 Image_ofd image_Ofd = new Image_ofd();
                 image_Ofd.Show();
                 image_ofd_window_status = true;
+            }
+        }
+
+        private void Settings_EyeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!pwEyeEnabled) 
+            {
+                Settings_PBox_ShowPassword.Visibility = Visibility.Hidden;
+                Settings_Label_ShowPassword.Visibility = Visibility.Visible;
+                Uri eyeImage_path = new Uri(path_window_icons + @"\3325118_eye_off_icon.png");
+                Settings_EyeButton_Image.Source = new BitmapImage(eyeImage_path);
+                pwEyeEnabled = true;
+            }else if (pwEyeEnabled)
+            {
+                Settings_PBox_ShowPassword.Visibility = Visibility.Visible;
+                Settings_Label_ShowPassword.Visibility = Visibility.Hidden;
+                Uri eyeImage_path = new Uri(path_window_icons + @"\226579_eye_icon.png");
+                Settings_EyeButton_Image.Source = new BitmapImage(eyeImage_path);
+                pwEyeEnabled = false;
             }
         }
     }
