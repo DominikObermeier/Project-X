@@ -20,10 +20,13 @@ namespace Project_X
     /// </summary>
     public partial class MainMenu : Window
     {
-        bool settings_window_status = false;
         public MainMenu()
         {
             InitializeComponent();
+            Properties.Settings.Default.settingsWindowStatus = false;
+            Properties.Settings.Default.regWindowStatus = false;
+            Properties.Settings.Default.mainMenuStatus = true;
+            Properties.Settings.Default.Save();
         }
         private void Window_Unloaded(object sender, RoutedEventArgs e)
         {
@@ -40,10 +43,11 @@ namespace Project_X
 
         private void Extras_Settings_Click(object sender, RoutedEventArgs e)
         {
-            if (settings_window_status == false) {
+            if (Properties.Settings.Default.settingsWindowStatus == false) {
                 Settings settingsWindow = new Settings();
                 settingsWindow.Show();
-                settings_window_status = true;
+                Properties.Settings.Default.settingsWindowStatus = true;
+                Properties.Settings.Default.Save();
             }
         }
     }

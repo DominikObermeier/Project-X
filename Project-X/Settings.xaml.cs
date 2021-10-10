@@ -21,18 +21,44 @@ namespace Project_X
     public partial class Settings : Window
     {
         bool saved = false;
-
+        private System.Threading.Timer timer;
         SolidColorBrush colorBackground;
         SolidColorBrush colorText;
         SolidColorBrush colorBackground2ndLayer;
-        bool image_ofd_window_status = false;
         bool pwEyeEnabled = false;
 
         public static string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
         public string path_window_icons = cdirectory + @"\Data\Window_Icons";
+        public string path_profile_images = cdirectory + @"\Data\Profile_Images";
         public Settings()
         {
             InitializeComponent();
+            Properties.Settings.Default.profileImageSetStatus = false;
+            Properties.Settings.Default.Save();
+            timer = new System.Threading.Timer(OnTimerEllapsed, new object(), 0, 100);
+        }
+
+        private void OnTimerEllapsed(object state)
+        {
+            if (!this.Dispatcher.CheckAccess())
+            {
+                if (SettingsWindow.Visibility == Visibility.Visible)
+                {
+                    try
+                    {
+                        this.Dispatcher.Invoke(new Action(RefreshImage));
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
+                }
+
+            }
+        }
+        private void RefreshImage()
+        {
+            this.Settings_ProfileImage.Source = new BitmapImage(new Uri(Properties.Settings.Default.profileImage));
         }
 
         private void SettingsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -46,12 +72,18 @@ namespace Project_X
                     "Settings alert",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Warning) ;
+
                 if (result == MessageBoxResult.No)
                 {
                     // If user doesn't want to close, cancel closure
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void Settings_QuitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         private void Design_Default_RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -118,16 +150,16 @@ namespace Project_X
             Settings_Label_ShowEmail.Text = Properties.Settings.Default.email;
             Settings_PBox_ShowPassword.Password = Properties.Settings.Default.password;
             Settings_Label_ShowPassword.Text = Properties.Settings.Default.password;
+
             Uri image_path = new Uri(Properties.Settings.Default.profileImage);
             Settings_ProfileImage.Source = new BitmapImage(image_path);
         }
 
         private void Settings_EditImage_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (image_ofd_window_status == false) {
-                Image_ofd image_Ofd = new Image_ofd();
-                image_Ofd.Show();
-                image_ofd_window_status = true;
+            if (Properties.Settings.Default.profileImageSetStatus == false) {
+                ProfileImageSettings profileImageSettings = new ProfileImageSettings();
+                profileImageSettings.Show();
             }
         }
 
@@ -148,6 +180,12 @@ namespace Project_X
                 Settings_EyeButton_Image.Source = new BitmapImage(eyeImage_path);
                 pwEyeEnabled = false;
             }
+        }
+
+        private void SettingsWindow_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.settingsWindowStatus = false;
+            Properties.Settings.Default.Save();
         }
     }
 }

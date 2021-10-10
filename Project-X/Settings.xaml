@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X"
         mc:Ignorable="d"
-        Title="Settings" Height="700" Width="800" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="SettingsWindow_Closing" Background="{DynamicResource BackgroundColor}" Loaded="SettingsWindow_Loaded" Icon="/Data/Window_Icons/3669250_settings_ic_icon.png">
+        Title="Settings" Height="700" Width="800" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Closing="SettingsWindow_Closing" Background="{DynamicResource BackgroundColor}" Loaded="SettingsWindow_Loaded" Icon="/Data/Window_Icons/3669250_settings_ic_icon.png" Unloaded="SettingsWindow_Unloaded" Topmost="True">
     <Window.Resources>
     </Window.Resources>
     <Grid x:Name="Settings_GridOutside" OpacityMask="Black">
@@ -14,7 +14,7 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Button x:Name="Settings_SaveButton" Width="180" Content="Save (STRG + S)" HorizontalAlignment="Left" Margin="100,0,0,0" Grid.Row="1" VerticalAlignment="Center" Height="40" Background="{DynamicResource AcceptButtonColor}" FontSize="24" Foreground="{DynamicResource ForegroundColor}" Click="Settings_SaveButton_Click"/>
-        <Button x:Name="Settings_QuitButton" Content="Quit (ESC)" Margin="0,0,100,0" Grid.Row="1" VerticalAlignment="Center" Height="40" Background="{DynamicResource QuitButtonColor}" FontSize="24" Foreground="{DynamicResource  ForegroundColor}" HorizontalAlignment="Right" Width="180"/>
+        <Button x:Name="Settings_QuitButton" Content="Quit (ESC)" Margin="0,0,100,0" Grid.Row="1" VerticalAlignment="Center" Height="40" Background="{DynamicResource QuitButtonColor}" FontSize="24" Foreground="{DynamicResource  ForegroundColor}" HorizontalAlignment="Right" Width="180" Click="Settings_QuitButton_Click"/>
         <Grid x:Name="Settings_GridInside">
             <GroupBox x:Name="Settings_Design_GroupBox" Header="Design" Height="124" VerticalAlignment="Top" HorizontalAlignment="Left" Width="170" Margin="10,10,0,0" FontSize="24" Background="{DynamicResource BackgroundColor}" Foreground="{DynamicResource ForegroundColor}" BorderBrush="{DynamicResource ForegroundColor}" OpacityMask="Black">
                 <GroupBox.Style>
@@ -54,7 +54,7 @@
                     </Grid>
                     <TextBlock x:Name="Settings_Label_Password" HorizontalAlignment="Left" Margin="10,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20"><Run Language="de-de" Text="P"/><Run Text="assword"/><Run Text=":"/></TextBlock>
                     <Grid HorizontalAlignment="Right" Width="150" Margin="0,0,10,10" Background="{DynamicResource Background2ndLayerColor}">
-                        <Image x:Name="Settings_ProfileImage" HorizontalAlignment="Center" Height="100" VerticalAlignment="Top" Width="100" Source="/Data/Profile_Images/noimagefound.png" Stretch="UniformToFill" Margin="0,16,0,0"/>
+                        <Image x:Name="Settings_ProfileImage" HorizontalAlignment="Center" VerticalAlignment="Top" Source="/Data/Profile_Images/noimagefound.png" Stretch="Uniform" Margin="0,16,0,0" MaxWidth="100" MaxHeight="100" Width="100"/>
                         <Button x:Name="Settings_EditImage_Button" VerticalAlignment="Top"  Margin="25,121,25,0" FontSize="20" Foreground="{DynamicResource BlueButtonColor}" Content="Edit Image" BorderBrush="{DynamicResource BlueButtonColor}" BorderThickness="2,2,2,2" Click="Settings_EditImage_Button_Click" Width="100" Height="32" Background="White"/>
                     </Grid>
                 </Grid>

@@ -24,9 +24,14 @@ namespace Project_X
     {
         SolidColorBrush colorBackground;
         SolidColorBrush colorText;
+        public static string cdirectory = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory).ToString()).ToString()).ToString();
+        public string path_profile_images = cdirectory + @"\Data\Profile_Images";
         public LoggingIn()
         {
             InitializeComponent();
+
+            //!!!Use command below if image has been deleted accidently!!!
+            //Properties.Settings.Default.profileImage = path_profile_images + @"\noimagefound.png";
 
             // Load Design
             if (Properties.Settings.Default.designMode == "Default")
