@@ -20,7 +20,10 @@ namespace Project_X
     /// </summary>
     public partial class Settings : Window
     {
-        bool saved = false;
+        bool designModeSaved = true;
+        bool passwordSaved = true;
+        bool emailSaved = true;
+        bool usernameSaved = true;
         private System.Threading.Timer timer;
         SolidColorBrush colorBackground;
         SolidColorBrush colorText;
@@ -46,7 +49,7 @@ namespace Project_X
                 {
                     try
                     {
-                        this.Dispatcher.Invoke(new Action(RefreshImage));
+                        this.Dispatcher.Invoke(new Action(RefreshContent));
                     }
                     catch (Exception e)
                     {
@@ -56,14 +59,16 @@ namespace Project_X
 
             }
         }
-        private void RefreshImage()
+        private void RefreshContent()
         {
             this.Settings_ProfileImage.Source = new BitmapImage(new Uri(Properties.Settings.Default.profileImage));
+            this.Settings_Label_ShowUsername.Text = Properties.Settings.Default.username;
+            this.Settings_Label_ShowEmail.Text = Properties.Settings.Default.email;
         }
 
         private void SettingsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (saved == false)
+            if (!designModeSaved || !usernameSaved || !emailSaved || !passwordSaved)
             {
                 string msg = "Settings haven't been saved yet. Close without saving?";
                 MessageBoxResult result =
@@ -130,7 +135,7 @@ namespace Project_X
                 Application.Current.Resources["ForegroundColor"] = colorText;
             }
 
-            saved = true;
+            designModeSaved = true;
         }
 
         private void SettingsWindow_Loaded(object sender, RoutedEventArgs e)
@@ -186,6 +191,58 @@ namespace Project_X
         {
             Properties.Settings.Default.settingsWindowStatus = false;
             Properties.Settings.Default.Save();
+        }
+
+        private void Settings_Profile_ChangeEmailButton_Click(object sender, RoutedEventArgs e)
+        {
+            Settings_TBox_Email.Text = Properties.Settings.Default.email;
+            Settings_Label_ShowEmail.Visibility = Visibility.Hidden;
+            Settings_TBox_Email.Visibility = Visibility.Visible;
+            Settings_Profile_ChangeEmailButton.Visibility = Visibility.Hidden;
+            Settings_Profile_SaveEmailButton.Visibility = Visibility.Visible;
+            emailSaved = false;
+        }
+
+        private void Settings_Profile_ChangeUsernameButton_Click(object sender, RoutedEventArgs e)
+        {
+            Settings_TBox_Username.Text = Properties.Settings.Default.username;
+            Settings_Label_ShowUsername.Visibility = Visibility.Hidden;
+            Settings_TBox_Username.Visibility = Visibility.Visible;
+            Settings_Profile_ChangeUsernameButton.Visibility = Visibility.Hidden;
+            Settings_Profile_SaveUsernameButton.Visibility = Visibility.Visible;
+            usernameSaved = false;
+        }
+
+        private void Settings_Profile_ChangePWButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Settings_Profile_SaveEmail_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.email = Settings_TBox_Email.Text;
+            Properties.Settings.Default.Save();
+            Settings_Label_ShowEmail.Visibility = Visibility.Visible;
+            Settings_TBox_Email.Visibility = Visibility.Hidden;
+            Settings_Profile_ChangeEmailButton.Visibility = Visibility.Visible;
+            Settings_Profile_SaveEmailButton.Visibility = Visibility.Hidden;
+            emailSaved = true;
+        }
+
+        private void Settings_Profile_SaveUsername_Click(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.username = Settings_TBox_Username.Text;
+            Properties.Settings.Default.Save();
+            Settings_Label_ShowUsername.Visibility = Visibility.Visible;
+            Settings_TBox_Username.Visibility = Visibility.Hidden;
+            Settings_Profile_ChangeUsernameButton.Visibility = Visibility.Visible;
+            Settings_Profile_SaveUsernameButton.Visibility = Visibility.Hidden;
+            usernameSaved = true;
+        }
+
+        private void Settings_Profile_SavePWButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
