@@ -6,6 +6,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <ApplicationIcon>2285206_social_application_code_share_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="211677_image_icon.png" />

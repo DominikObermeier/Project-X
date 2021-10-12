@@ -74,8 +74,14 @@ namespace Project_X
 
         private void Click_ProfileImage(object sender, RoutedEventArgs e)
         {
-            Image_ofd image_ofd = new Image_ofd();
-            image_ofd.Show();
+            try
+            {
+                Image_ofd image_ofd = new Image_ofd();
+                image_ofd.Show();
+            }catch (Exception exce)
+            {
+                MessageBox.Show(exce.Message);
+            }
         }
     }
 }

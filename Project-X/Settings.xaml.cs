@@ -140,24 +140,30 @@ namespace Project_X
 
         private void SettingsWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            // Detect Design Mode
-            if (Application.Current.Resources["BackgroundColor"].ToString() == "#FFE5E5E5")
+            try
             {
-                Design_Default_RadioButton.IsChecked = true;
-            }
-            else if (Application.Current.Resources["BackgroundColor"].ToString() == "#FF212121")
+                // Detect Design Mode
+                if (Application.Current.Resources["BackgroundColor"].ToString() == "#FFE5E5E5")
+                {
+                    Design_Default_RadioButton.IsChecked = true;
+                }
+                else if (Application.Current.Resources["BackgroundColor"].ToString() == "#FF212121")
+                {
+                    Design_DarkMode_RadioButton.IsChecked = true;
+                }
+
+                // Load profile data
+                Settings_Label_ShowUsername.Text = Properties.Settings.Default.username;
+                Settings_Label_ShowEmail.Text = Properties.Settings.Default.email;
+                Settings_PBox_ShowPassword.Password = Properties.Settings.Default.password;
+                Settings_Label_ShowPassword.Text = Properties.Settings.Default.password;
+
+                Uri image_path = new Uri(Properties.Settings.Default.profileImage);
+                Settings_ProfileImage.Source = new BitmapImage(image_path);
+            }catch(Exception esss)
             {
-                Design_DarkMode_RadioButton.IsChecked = true;
+                MessageBox.Show(esss.Message);
             }
-
-            // Load profile data
-            Settings_Label_ShowUsername.Text = Properties.Settings.Default.username;
-            Settings_Label_ShowEmail.Text = Properties.Settings.Default.email;
-            Settings_PBox_ShowPassword.Password = Properties.Settings.Default.password;
-            Settings_Label_ShowPassword.Text = Properties.Settings.Default.password;
-
-            Uri image_path = new Uri(Properties.Settings.Default.profileImage);
-            Settings_ProfileImage.Source = new BitmapImage(image_path);
         }
 
         private void Settings_EditImage_Button_Click(object sender, RoutedEventArgs e)
